@@ -1,0 +1,51 @@
+{
+  "name": "ynovnative2022",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "start": "react-native start",
+    "test": "jest",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@babel/eslint-parser": "^7.17.0",
+    "@react-native-async-storage/async-storage": "^1.16.3",
+    "@react-navigation/bottom-tabs": "^6.2.0",
+    "@react-navigation/native": "^6.0.8",
+    "@react-navigation/native-stack": "^6.5.0",
+    "@reduxjs/toolkit": "^1.8.1",
+    "axios": "^0.26.0",
+    "react": "17.0.2",
+    "react-native": "0.67.3",
+    "react-native-flash-message": "^0.2.1",
+    "react-native-safe-area-context": "^4.1.2",
+    "react-native-screens": "^3.13.1",
+    "react-native-uuid": "^2.0.1",
+    "react-native-vector-icons": "^9.1.0",
+    "react-redux": "^7.2.7",
+    "redux": "^4.1.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.5",
+    "@babel/runtime": "^7.17.2",
+    "@react-native-community/eslint-config": "^3.0.1",
+    "babel-jest": "^27.5.1",
+    "eslint": "^8.10.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.2",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "jest": "^27.5.1",
+    "metro-react-native-babel-preset": "^0.68.0",
+    "react-test-renderer": "17.0.2"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
