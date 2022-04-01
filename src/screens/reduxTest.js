@@ -1,4 +1,4 @@
-import { View, Text, Button } from 'react-native'
+import { View, Text, Button, SafeAreaView } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -11,6 +11,7 @@ export default function ReduxTest() {
     counterState
   )
   return (
+    <SafeAreaView>
     <View>
       <Text>{counterState.counterValue}</Text>
       <Button title='+' onPress={() => dispatch(incrementCounter(5))}>
@@ -20,5 +21,6 @@ export default function ReduxTest() {
         -
       </Button>
     </View>
+    </SafeAreaView>
   )
 }
