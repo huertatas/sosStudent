@@ -28,3 +28,8 @@ Let Metro Bundler run in its own terminal. Open a new terminal inside your React
 ```
 npx react-native run-android
 ```
+
+### Other
+- yarn start Start Strapi without watch mode.
+- yarn build Build Strapi admin panel.
+- yarn strapi Display all available commands.
