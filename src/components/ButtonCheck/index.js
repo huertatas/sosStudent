@@ -4,15 +4,15 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
 import { colors } from '../../helpers/colors'
 
-export default function ButtonValidity({ textButton }) {
+export default function ButtonCheck({ textButton }) {
   return (
-    <ButtonValidityStyled>
+    <ButtonCheckStyled>
       <Ionicons name={'checkmark-outline'} size={30} color='white' />
-    </ButtonValidityStyled>
+    </ButtonCheckStyled>
   )
 }
 
-const ButtonValidityStyled = styled.TouchableOpacity`
+const ButtonCheckStyled = styled.TouchableOpacity`
   width: 40px;
   height: 40px;
   border-radius: ${40 / 2};

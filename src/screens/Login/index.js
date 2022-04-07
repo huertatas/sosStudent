@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { showMessage } from 'react-native-flash-message'
 import styled from 'styled-components'
-import Inputs from '../../components/TextInput'
-import Image from '../../components/Image'
+import Inputs from '../../components/TextInputComponent'
+import Image from '../../components/ImageComponent'
 
 const Login = ({ navigation }) => {
   const handleSubmit = () => {
