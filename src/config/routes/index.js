@@ -1,7 +1,7 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import Logins from '../../screens/Login'
+import Login from '../../screens/Login'
 import ProfessorClassRoom from '../../screens/Professor/ClassRooms'
 import ProfessorAddNewRoom from '../../screens/Professor/AddNewRoom'
 import ProfessorWaitingRoom from '../../screens/Professor/WaitingRoom'
@@ -17,7 +17,7 @@ const Routes = () => {
       <Stack.Navigator screenOptions={{ headerShown: true }}>
         <Stack.Screen 
           name='Login' 
-          component={Logins} 
+          component={Login} 
         />
         <Stack.Screen
           name='ProfessorClassRoom'
