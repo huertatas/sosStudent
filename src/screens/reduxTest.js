@@ -11,25 +11,9 @@ export default function ReduxTest({ navigation }) {
 
   return (
     <SafeAreaView>
-    <View>
-      <Text>{counterState.counterValue}</Text>
-      <Button title='+' onPress={() => dispatch(incrementCounter(5))}>
-        +
-      </Button>
-      <Button title='-' onPress={() => dispatch(decrementCounter())}>
-        -
-      </Button>
-      <Button title='Login-page' onPress={() => navigation.navigate('Login')}>
-        Login page
-      </Button>
-    </View>
+      <View>
+        <Text>page test redux</Text> 
+      </View>
     </SafeAreaView>
   )
 }
-
-// const styles = StyleSheet.create({
-//   sectionContainer: {
-//     marginTop: 32,
-//     paddingHorizontal: 24,
-//   },
-// )}
