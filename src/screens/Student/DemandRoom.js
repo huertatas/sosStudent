@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { SafeAreaView } from 'react-native'
 import styled from 'styled-components'
 import Title from '../../components/Title'
-import TextInput from '../../components/TextInputComponent'
+import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
 
 const DemandRoom = () => {
