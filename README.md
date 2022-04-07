@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # Project SOS Student
 
-## Group
+## Groupe
 - Salavudeen Hadji
 - Maxime Huertas
 - Thomas Pomart
