@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { View, Text, Button, SafeAreaView } from 'react-native'
-import { incrementCounter, decrementCounter } from '../actions/counter'
+import { incrementCounter, decrementCounter } from '../../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
