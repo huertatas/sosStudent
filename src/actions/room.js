@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-export const DISPLAY_ROOMS = 'DISPLAY_ROOM'
+export const DISPLAY_ROOMS = 'DISPLAY_ROOMS'
 
 export const displayRoom = payload => ({
   type: DISPLAY_ROOMS,
