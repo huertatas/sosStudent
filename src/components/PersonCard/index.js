@@ -13,7 +13,7 @@ export default function PersonCard({title}) {
      <Card>
      <SubCard>
      <Ionicons name={'home-outline'} size={30}/>
-     <Title>Hello</Title>
+     <Title>{title}</Title>
      <Ionicons name={'home-outline'} size={30}/>
      </SubCard>
      </Card>

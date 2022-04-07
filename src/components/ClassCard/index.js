@@ -9,7 +9,7 @@ export default function PersonCard({title}) {
     <SafeAreaView>
     <View>
      <Card>
-     <Title>Hello</Title>
+     <Title>{title}</Title>
      </Card>
     </View>
     </SafeAreaView>
@@ -22,8 +22,9 @@ font-weight:300;
 align-items:center;
 `
 const Card = styled.View`
-height:40px;
+height:70px;
 width:350px;
+margin-top:20px;
 background-color:white;
 justify-content:center;
 align-items:center;

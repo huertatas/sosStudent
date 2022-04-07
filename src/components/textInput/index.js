@@ -17,9 +17,11 @@ const Input = styled.TextInput`
   background-color: white;
   margin: 16px auto;
   width: 350px;
-  font-size: 24px;
+  height:30px;
+  font-size: 20px;
+  padding-left:10px;
   color: black;
-  border: 1px solid red;
+  border: 1px solid;
   border-radius: 6px;
 `
 

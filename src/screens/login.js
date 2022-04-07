@@ -1,34 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { showMessage } from 'react-native-flash-message'
 import styled from 'styled-components'
-
+import Inputs from "../components/TextInput"
+import Image from "../components/Image/index"
 const Login = ({ navigation }) => {
-  const [account, setAccount] = useState({})
 
   const handleSubmit = () => {
     navigation.navigate('ProfessorClassRoom')
-    console.log(
-      `[Info] User account : ${account.username}, password: ${account.password}`
-    )
+   
   }
 
   return (
     <Container>
-      <Input
-        placeholder='Username'
-        onChangeText={username => setAccount({ ...account, username })}
-      />
-      <Input
-        secureTextEntry={true}
-        placeholder='Password'
-        onChangeText={password => setAccount({ ...account, password })}
-      />
-      <Submit title='Login' onPress={handleSubmit} />
+      <Image uri="https://edtechawesomeness.files.wordpress.com/2017/09/share-to-classroom-e1504657407631.png"/>
+      <Inputs placeholder="Identifiant"/>
+      <Inputs placeholder="Mot de passe"/>
+      <Submit title="Se connecter" onPress={handleSubmit}/>
     </Container>
   )
 }
 
-const Container = styled.ScrollView``
+const Container = styled.View``
 
 const Input = styled.TextInput``
 
