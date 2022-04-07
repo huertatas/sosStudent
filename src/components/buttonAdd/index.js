@@ -1,13 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
+import Ionicons from 'react-native-vector-icons/Ionicons'
+Ionicons.loadFont().then();
 import { colors } from '../../helpers/colors'
 
 export default function ButtonAdd({ textButton }) {
-  return (
-    <ButtonAddStyled>
-      <TextButtonAdd>+</TextButtonAdd>
-    </ButtonAddStyled>
-  )
+  return <ButtonAddStyled></ButtonAddStyled>
 }
 
 const ButtonAddStyled = styled.TouchableOpacity`
@@ -18,14 +16,6 @@ const ButtonAddStyled = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
-`
-
-const TextButtonAdd = styled.Text`
-  color: white;
-  font-size: 20px;
-  font-weight: 800;
-  margin: 0px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 `
