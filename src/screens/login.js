@@ -6,6 +6,7 @@ const Login = ({ navigation }) => {
   const [account, setAccount] = useState({})
 
   const handleSubmit = () => {
+    navigation.navigate('ProfessorClassRoom')
     console.log(
       `[Info] User account : ${account.username}, password: ${account.password}`
     )
