@@ -7,7 +7,7 @@ export const displayRoom = payload => ({
   payload
 })
 
-export const getRooms = offset => dispatch => {
+export const getRooms = () => dispatch => {
   axios({
     method: 'GET',
     url: 'https://mobilebackstrapi.herokuapp.com/api/rooms'
@@ -17,8 +17,7 @@ export const getRooms = offset => dispatch => {
     // }
   })
     .then(response => {
-      // dispatch(displayRoom(response.data.data.results))
-      console.log(response)
+      dispatch(displayRoom(response.data.data))
     })
     .catch(error => {
       console.log(error)
