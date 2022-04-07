@@ -24,3 +24,10 @@ export default function ReduxTest() {
     </SafeAreaView>
   )
 }
+
+// const styles = StyleSheet.create({
+//   sectionContainer: {
+//     marginTop: 32,
+//     paddingHorizontal: 24,
+//   },
+// )}
