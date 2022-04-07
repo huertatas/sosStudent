@@ -1,3 +1,3 @@
-export default const color = {
-  mainColor: "blue"
+export const colors = {
+  mainColor: 'blue'
 }
