@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { View, Text, Button, SafeAreaView } from 'react-native'
-import { incrementCounter, decrementCounter } from '../actions/counter'
+import { incrementCounter, decrementCounter } from '../../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
@@ -9,15 +9,13 @@ export default function PersonCard({title}) {
 
   return (
     <SafeAreaView>
-    <View>
      <Card>
      <SubCard>
-     <Ionicons name={'home-outline'} size={30}/>
+     <Ionicons style={{marginTop:5}} name={'person-circle-outline'} size={30}/>
      <Title>Hello</Title>
-     <Ionicons name={'home-outline'} size={30}/>
+     <Ionicons name={'trash-outline'} style={{marginTop:5}} color="red" size={25}/>
      </SubCard>
      </Card>
-    </View>
     </SafeAreaView>
   )
 }
@@ -28,6 +26,9 @@ font-weight:300;
 align-items:center;
 `
 const Card = styled.View`
+margin-left:20px;
+margin-top:20px;
+border-radius:10px;
 height:40px;
 width:350px;
 background-color:white
