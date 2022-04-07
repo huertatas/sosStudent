@@ -50,7 +50,7 @@ border-bottom-left-radius:10px;
 `
 
 const Title = styled.Text`
-font-size:18px;
+font-size:17px;
 font-weight:300;
 align-items:center;
 margin-left:20px
@@ -58,7 +58,7 @@ margin-left:20px
 
 const Description = styled.Text`
 font-size:18px;
-margin-left:10px
+margin-left:20px
 margin-top:2px;
 `
 const Title2 = styled.Text`
