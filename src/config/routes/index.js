@@ -1,7 +1,6 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import reduxTest from '../../screens/reduxTest';
 import Home from '../../screens/Home';
 
 const Stack = createNativeStackNavigator()

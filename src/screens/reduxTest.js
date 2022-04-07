@@ -3,13 +3,10 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-export default function ReduxTest() {
+export default function ReduxTest({ navigation }) {
   const counterState = useSelector(state => state.counter)
   const dispatch = useDispatch()
-  console.log(
-    '🚀 ~ file: reduxTest.js ~ line 7 ~ reduxTest ~ counterState',
-    counterState
-  )
+
   return (
     <SafeAreaView>
     <View>
@@ -19,6 +16,9 @@ export default function ReduxTest() {
       </Button>
       <Button title='-' onPress={() => dispatch(decrementCounter())}>
         -
+      </Button>
+      <Button title='Login-page' onPress={() => navigation.navigate('Login')}>
+        Login page
       </Button>
     </View>
     </SafeAreaView>
