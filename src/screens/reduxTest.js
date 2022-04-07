@@ -6,10 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 export default function ReduxTest({ navigation }) {
   const counterState = useSelector(state => state.counter)
   const dispatch = useDispatch()
-  console.log(
-    '🚀 ~ file: reduxTest.js ~ line 7 ~ reduxTest ~ counterState',
-    counterState
-  )
+
   return (
     <View>
       <Text>{counterState.counterValue}</Text>
