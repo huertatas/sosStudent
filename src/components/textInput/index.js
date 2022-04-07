@@ -4,25 +4,24 @@ import styled from "styled-components";
 const TextInput = ({value, onChangeValue, placeholder, multiline=false, numberOfLines=1 }) => {
   return(
     <Input
-    onChangeText={onChangeValue}
-    value={value}
-    placeholder={placeholder}
-    multiline={multiline}
-    numberOfLines={numberOfLines}
+      onChangeText={onChangeValue}
+      value={value}
+      placeholder={placeholder}
+      multiline={multiline}
+      numberOfLines={numberOfLines}
   />
   );
 }
 
 const Input = styled.TextInput`
-  background-color: white;
+  width: 80%;
   margin: 16px auto;
-  width: 350px;
-  height:30px;
-  font-size: 20px;
-  padding-left:10px;
+  padding-left:6px;
   color: black;
+  background-color: white;
   border: 1px solid;
   border-radius: 6px;
+  font-size: 20px;
 `
 
 export default TextInput

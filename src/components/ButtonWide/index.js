@@ -11,7 +11,7 @@ export default function ButtonWide({ textButton }) {
 }
 
 const ButtonWideStyled = styled.TouchableOpacity`
-  width: 70%;
+  width: 80%;
   background: black;
   display: flex;
   justify-content: center;

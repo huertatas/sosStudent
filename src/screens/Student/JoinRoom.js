@@ -1,13 +1,39 @@
-import { View, Text, Button, SafeAreaView } from 'react-native'
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView } from 'react-native'
+import styled from 'styled-components'
+import Title from '../../components/Title'
+import TextInput from '../../components/TextInput'
+import SubmitButton from '../../components/ButtonWide'
 
+const JoinRoom = () => {
+  const [input, setInput] = useState('')
+  const handleInputChange = newValue => setInput(newValue)
 
-export default function Home() {
+  useEffect(() => {
+    if (input) console.log(`🚧👷 New value for input : ${input}`)
+  }, [input])
+
   return (
     <SafeAreaView>
-      <View>
-       <Text>Hello sala</Text>
-      </View>
+      <Container>
+        <Title title={'Join a class'} />
+        <TextInput
+          value={input}
+          onChangeValue={setInput}
+          placeholder={'Class code...'}
+        />
+        <SubmitButton textButton={'Submit'} />
+      </Container>
     </SafeAreaView>
   )
 }
+
+const Container = styled.View`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`
+
+export default JoinRoom

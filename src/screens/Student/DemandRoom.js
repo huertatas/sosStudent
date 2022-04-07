@@ -1,13 +1,41 @@
-import { View, Text, Button, SafeAreaView } from 'react-native'
-import React, {useState} from 'react'
+import React, { useState, useEffect } from 'react'
+import { SafeAreaView } from 'react-native'
+import styled from 'styled-components'
+import Title from '../../components/Title'
+import TextInput from '../../components/TextInput'
+import SubmitButton from '../../components/ButtonWide'
 
+const DemandRoom = () => {
+  const [input, setInput] = useState('')
+  const handleInputChange = newValue => setInput(newValue)
 
-export default function Home() {
+  useEffect(() => {
+    if (input) console.log(`🚧👷 New value for input : ${input}`)
+  }, [input])
+
   return (
     <SafeAreaView>
-      <View>
-       <Text>Hello sala</Text>
-      </View>
+      <Container>
+        <Title title={'Add a new demand '} />
+        <TextInput
+          value={input}
+          onChangeValue={setInput}
+          placeholder={'Enter a short description...'}
+          multiline={true}
+          numberOfLines={3}
+        />
+        <SubmitButton textButton={'Add to list'} />
+      </Container>
     </SafeAreaView>
   )
 }
+
+const Container = styled.View`
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`
+
+export default DemandRoom
