@@ -8,7 +8,11 @@ import Card from '../../components/Card'
 Ionicons.loadFont().then()
 
 export default function WaitingRoom({ route }) {
-  console.log('=>>>', route)
+  const roomId = route.params.roomId
+  console.log(
+    '🚀 ~ file: WaitingRoom.js ~ line 12 ~ WaitingRoom ~ roomId',
+    roomId
+  )
 
   return (
     <SafeAreaView>
