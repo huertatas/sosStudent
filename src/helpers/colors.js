@@ -1,3 +1,5 @@
 export const colors = {
-  mainColor: 'blue'
+  brightWhite: 'white',
+  brightGreen: 'green',
+  brightGrey: 'grey'
 }
