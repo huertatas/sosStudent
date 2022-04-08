@@ -8,12 +8,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
 
-export default function Home() {
+export default function Home({ navigation }) {
   const rooms = useSelector(state => state.rooms)
   const notifs = useSelector(state => state.notifs)
   console.log('🚀 ~ file: ClassRooms.js ~ line 12 ~ Home ~ notifs', notifs)
   console.log('🚀 ~ file: ClassRooms.js ~ line 10 ~ Home ~ rooms', rooms)
   const dispatch = useDispatch()
+
+  const handleNavigateToCreateRoom = () => {
+    navigation.navigate('ProfessorWaitingRoom', {
+      itemId: 2
+    })
+  }
 
   useEffect(() => {
     dispatch(getRooms())
@@ -23,8 +29,14 @@ export default function Home() {
     <SafeAreaView>
       <View>
         <Title title='ClassRooms' />
-        <ClassCard title='ClassRoom1' OnPress={() => console.log('click')} />
-        <ClassCard title='ClassRoom2' OnPress={() => console.log('click')} />
+        <ClassCard
+          title='ClassRoom1'
+          button={() => handleNavigateToCreateRoom()}
+        />
+        <ClassCard
+          title='ClassRoom2'
+          button={() => handleNavigateToCreateRoom()}
+        />
         <ButtonView>
           <AddButton />
         </ButtonView>

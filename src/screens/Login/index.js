@@ -15,7 +15,7 @@ const Login = ({ navigation }) => {
       <Image uri='https://edtechawesomeness.files.wordpress.com/2017/09/share-to-classroom-e1504657407631.png' />
       <Inputs placeholder='Identifiant' />
       <Inputs placeholder='Mot de passe' />
-      <SubmitButton textButton={'Se connecter'} onPress={handleSubmit} />
+      <SubmitButton textButton={'Se connecter'} button={handleSubmit} />
     </Container>
   )
 }

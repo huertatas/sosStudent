@@ -7,7 +7,9 @@ import Subtitle from '../../components/Subtitle'
 import Card from '../../components/Card'
 Ionicons.loadFont().then()
 
-export default function WaitingRoom() {
+export default function WaitingRoom({ route }) {
+  console.log('=>>>', route)
+
   return (
     <SafeAreaView>
       <View>
