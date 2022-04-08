@@ -13,17 +13,10 @@ export default function ButtonCheck({ textButton }) {
 }
 
 const ButtonCheckStyled = styled.TouchableOpacity`
-<<<<<<< HEAD
   width: 30px;
   height: 30px;
   border-radius: ${30 / 2};
   background: green;
-=======
-  width: 40px;
-  height: 40px;
-  border-radius: ${40 / 2};
-  background: ${colors.brightGreen};
->>>>>>> 32a0032ba5540a3a8186183a0cef7f12e8557aae
   display: flex;
   justify-content: center;
   align-items: center;

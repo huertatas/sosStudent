@@ -9,7 +9,6 @@ import {
 } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
-<<<<<<< HEAD
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonCheck from '../ButtonCheck';
 Ionicons.loadFont().then();
@@ -31,28 +30,6 @@ export default function Cards({title}) {
     <Description>Urgent j'ai un probblème avec Strapi</Description>
     </DescriptionCard>
   }
-=======
-import { colors } from '../../helpers/colors'
-
-export default function Cards({ title }) {
-  const [isActive, setIsActive] = useState(false)
-  return (
-    <SafeAreaView>
-      <TouchableOpacity onPress={() => setIsActive(!isActive)}>
-        <Card>
-          <TitleCard>
-            <Title>Student 1</Title>
-            <Title2>Stud</Title2>
-          </TitleCard>
-        </Card>
-      </TouchableOpacity>
-      {isActive && (
-        <DescriptionCard>
-          <Description>Description : </Description>
-          <Description>Urgent j'ai un probblème avec Strapi</Description>
-        </DescriptionCard>
-      )}
->>>>>>> 32a0032ba5540a3a8186183a0cef7f12e8557aae
     </SafeAreaView>
   )
 }
@@ -60,7 +37,7 @@ export default function Cards({ title }) {
 const Card = styled.View`
   margin-top: 10px;
   height: 40px;
-  background-color: ${colors.brightWhite};
+  background-color: white;
   width: 350px;
   margin-left: 20px;
   justify-content: center;
@@ -68,18 +45,13 @@ const Card = styled.View`
 `
 
 const TitleCard = styled.View`
-<<<<<<< HEAD
 flex-direction:row;
 justify-content:space-between;
 align-items:center;
-=======
-  flex-direction: row;
-  justify-content: space-between;
->>>>>>> 32a0032ba5540a3a8186183a0cef7f12e8557aae
 `
 const DescriptionCard = styled.View`
   height: 100px;
-  background-color: ${colors.brightWhite};
+  background-color:white;
   width: 350px;
   margin-left: 20px;
   border-bottom-right-radius: 10px;

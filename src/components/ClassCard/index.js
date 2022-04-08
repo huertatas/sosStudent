@@ -26,7 +26,7 @@ const Card = styled.View`
   height: 70px;
   width: 350px;
   margin-top: 20px;
-  background-color: ${colors.brightWhite};
+  background-color:white;
   justify-content: center;
   align-items: center;
   margin-left: 20px;

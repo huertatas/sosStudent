@@ -31,7 +31,7 @@ const Title = styled.Text`
 const Card = styled.View`
   height: 40px;
   width: 350px;
-  background-color: ${colors.brightWhite};
+  background-color: white;
   margin-left: 20px;
 `
 const SubCard = styled.View`
