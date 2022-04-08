@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { showMessage } from 'react-native-flash-message'
 import styled from 'styled-components'
 import Inputs from '../../components/TextInput'
+import SubmitButton from '../../components/ButtonWide'
 import Image from '../../components/Image'
 
 const Login = ({ navigation }) => {
@@ -14,7 +15,7 @@ const Login = ({ navigation }) => {
       <Image uri='https://edtechawesomeness.files.wordpress.com/2017/09/share-to-classroom-e1504657407631.png' />
       <Inputs placeholder='Identifiant' />
       <Inputs placeholder='Mot de passe' />
-      <Submit title='Se connecter' onPress={handleSubmit} />
+      <SubmitButton textButton={'Se connecter'} onPress={handleSubmit} />
     </Container>
   )
 }

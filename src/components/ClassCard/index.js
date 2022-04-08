@@ -5,11 +5,11 @@ import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../../helpers/colors'
 
-export default function PersonCard({ title }) {
+export default function PersonCard({ title,button }) {
   return (
     <SafeAreaView>
       <View>
-        <Card>
+        <Card onPress={button}>
           <Title>{title}</Title>
         </Card>
       </View>
