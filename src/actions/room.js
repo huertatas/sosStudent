@@ -20,16 +20,18 @@ export const getRooms = () => dispatch => {
     })
 }
 
-export const createRoom = () => dispatch => {
+export const createRoom = nameRoom => dispatch => {
   axios({
-    method: 'GET',
-    url: 'https://mobilebackstrapi.herokuapp.com/api/rooms'
-    // data: {
-    //   foo: 'bar',
-    // }
+    method: 'POST',
+    url: 'https://mobilebackstrapi.herokuapp.com/api/rooms',
+    data: {
+      data: {
+        Name: nameRoom
+      }
+    }
   })
     .then(response => {
-      dispatch(displayRoom(response.data.data))
+      console.log(response)
     })
     .catch(error => {
       console.log(error)

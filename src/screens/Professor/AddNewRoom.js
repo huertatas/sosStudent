@@ -4,10 +4,17 @@ import styled from 'styled-components'
 import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
+import { createRoom } from '../../actions/room'
+import { useDispatch } from 'react-redux'
 
 const AddNewRoom = () => {
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
+  const dispatch = useDispatch()
+
+  handleCreateNewRoom = () => {
+    dispatch(createRoom(input))
+  }
 
   useEffect(() => {
     if (input)

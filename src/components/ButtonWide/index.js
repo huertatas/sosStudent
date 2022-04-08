@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { colors } from '../../helpers/colors'
 
-export default function ButtonWide({ textButton }) {
+export default function ButtonWide({ textButton, button }) {
   return (
-    <ButtonWideStyled>
+    <ButtonWideStyled onPress={() => button()}>
       <TextButtonWide>{textButton}</TextButtonWide>
     </ButtonWideStyled>
   )

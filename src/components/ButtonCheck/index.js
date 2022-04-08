@@ -23,4 +23,5 @@ const ButtonCheckStyled = styled.TouchableOpacity`
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 0px;
+  margin-right:10px;
 `

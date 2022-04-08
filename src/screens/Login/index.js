@@ -24,16 +24,26 @@ const Login = ({ navigation }) => {
   }, [email, password])
 
   const handleSubmit = () => {
+<<<<<<< HEAD
     dispatch(login({email, password}))
     //navigation.navigate('ProfessorWaitingRoom')
+=======
+    navigation.navigate('ProfessorClassRoom')
+>>>>>>> b28f12efddd703e29504ce91561655df99910d5a
   }
 
   return (
     <Container>
       <Image uri='https://edtechawesomeness.files.wordpress.com/2017/09/share-to-classroom-e1504657407631.png' />
+<<<<<<< HEAD
       <Input placeholder='Email...' value={email} onChangeValue={setEmail}/>
       <Input placeholder='Password...' value={password} onChangeValue={setPassword}/>
       <Submit title='Login' onPress={handleSubmit} />
+=======
+      <Inputs placeholder='Identifiant' />
+      <Inputs placeholder='Mot de passe' />
+      <SubmitButton textButton={'Se connecter'} button={handleSubmit} />
+>>>>>>> b28f12efddd703e29504ce91561655df99910d5a
     </Container>
   )
 }
