@@ -8,6 +8,8 @@ import { getRoomById } from '../../actions/room'
 import { deleteNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
+import { useFocusEffect } from '@react-navigation/native'
+
 Ionicons.loadFont().then()
 
 export default function WaitingRoom({ route }) {
@@ -22,6 +24,10 @@ export default function WaitingRoom({ route }) {
   useEffect(() => {
     dispatch(getRoomById(roomId))
   }, [])
+
+  useFocusEffect(() => {
+   dispatch(getRoomById(roomId))
+  })
 
   return (
     <SafeAreaView>
