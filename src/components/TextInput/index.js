@@ -24,6 +24,7 @@ const Input = styled.TextInput`
   width: 80%;
   margin: 16px auto;
   padding-left: 6px;
+  height:40px;
   color: black;
   background-color: ${colors.lightBackground};
   border: 1px solid;
