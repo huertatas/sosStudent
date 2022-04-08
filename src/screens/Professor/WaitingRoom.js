@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import Subtitle from '../../components/Subtitle'
 import { getRoomById } from '../../actions/room'
+import { deleteNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
 Ionicons.loadFont().then()
@@ -38,7 +39,7 @@ export default function WaitingRoom({ route }) {
               <Card
                 title={item.attributes.Name}
                 message={item.attributes.Message}
-                // button={() => handleNavigateToWaitingRoom(item.id)}
+                button={() => dispatch(deleteNotifs(item.id))}
               />
             )
           }}

@@ -4,9 +4,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
 import { colors } from '../../helpers/colors'
 
-export default function ButtonCheck({ textButton }) {
+export default function ButtonCheck({ textButton, button }) {
   return (
-    <ButtonCheckStyled>
+    <ButtonCheckStyled onPress={button}>
       <Ionicons name={'checkmark-outline'} size={25} color='white' />
     </ButtonCheckStyled>
   )
@@ -23,5 +23,5 @@ const ButtonCheckStyled = styled.TouchableOpacity`
   margin-top: 20px;
   margin-bottom: 20px;
   padding: 0px;
-  margin-right:10px;
+  margin-right: 10px;
 `

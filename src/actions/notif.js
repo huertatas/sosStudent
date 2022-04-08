@@ -20,6 +20,19 @@ export const getNotifs = () => dispatch => {
     })
 }
 
+export const deleteNotifs = idNotif => dispatch => {
+  axios({
+    method: 'DELETE',
+    url: `https://mobilebackstrapi.herokuapp.com/api/notifs/${idNotif}`
+  })
+    .then(response => {
+      console.log('🚀 deleting notif ===>', response)
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
 export const createNotif = (idRoom, helpMessage) => dispatch => {
   axios({
     method: 'POST',

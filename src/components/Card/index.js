@@ -14,16 +14,16 @@ import ButtonCheck from '../ButtonCheck'
 import { colors } from '../../helpers/colors'
 Ionicons.loadFont().then()
 
-export default function Cards({ title, message }) {
+export default function Cards({ title, message, button }) {
   const [isActive, setIsActive] = useState(false)
   return (
     <SafeAreaView>
-        <Card onPress={() => setIsActive(!isActive)}>
-          <TitleCard>
-            <Title>{title}</Title>
-            <ButtonCheck />
-          </TitleCard>
-        </Card>
+      <Card onPress={() => setIsActive(!isActive)}>
+        <TitleCard>
+          <Title>{title}</Title>
+          <ButtonCheck button={button} />
+        </TitleCard>
+      </Card>
       {isActive && (
         <DescriptionCard>
           {/* <Description>Description : {description}</Description> */}
