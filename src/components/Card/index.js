@@ -18,14 +18,12 @@ export default function Cards({ title, message }) {
   const [isActive, setIsActive] = useState(false)
   return (
     <SafeAreaView>
-      <TouchableOpacity onPress={() => setIsActive(!isActive)}>
-        <Card>
+        <Card onPress={() => setIsActive(!isActive)}>
           <TitleCard>
             <Title>{title}</Title>
             <ButtonCheck />
           </TitleCard>
         </Card>
-      </TouchableOpacity>
       {isActive && (
         <DescriptionCard>
           {/* <Description>Description : {description}</Description> */}
