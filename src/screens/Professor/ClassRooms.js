@@ -11,13 +11,16 @@ import styled from 'styled-components'
 export default function Home({ navigation }) {
   const rooms = useSelector(state => state.rooms)
   const notifs = useSelector(state => state.notifs)
-  console.log('🚀 ~ file: ClassRooms.js ~ line 12 ~ Home ~ notifs', notifs.notifs)
+  console.log(
+    '🚀 ~ file: ClassRooms.js ~ line 12 ~ Home ~ notifs',
+    notifs.notifs
+  )
   console.log('🚀 ~ file: ClassRooms.js ~ line 10 ~ Home ~ rooms', rooms.rooms)
   const dispatch = useDispatch()
 
-  const handleNavigateToWaitingRoom = () => {
+  const handleNavigateToWaitingRoom = id => {
     navigation.navigate('ProfessorWaitingRoom', {
-      roomId: 2
+      roomId: id
     })
   }
 
@@ -33,13 +36,17 @@ export default function Home({ navigation }) {
     <SafeAreaView>
       <View>
         <Title title='ClassRooms' />
-        <ClassCard
-          title='ClassRoom1'
-          button={() => handleNavigateToWaitingRoom()}
-        />
-        <ClassCard
-          title='ClassRoom2'
-          button={() => handleNavigateToWaitingRoom()}
+        <FlatRooms
+          data={rooms.rooms}
+          renderItem={({ item }) => {
+            return (
+              <ClassCard
+                title={item.attributes?.Name}
+                button={() => handleNavigateToWaitingRoom(item.id)}
+              />
+            )
+          }}
+          keyExtractor={room => room.id}
         />
         <ButtonView>
           <AddButton button={handleNavigateToCreateRoom} />
@@ -54,3 +61,5 @@ const ButtonView = styled.TouchableOpacity`
   bottom: -80px;
   right: 40px;
 `
+
+const FlatRooms = styled.FlatList``

@@ -14,22 +14,22 @@ import ButtonCheck from '../ButtonCheck'
 import { colors } from '../../helpers/colors'
 Ionicons.loadFont().then()
 
-export default function Cards({ title }) {
+export default function Cards({ title, message }) {
   const [isActive, setIsActive] = useState(false)
   return (
     <SafeAreaView>
       <TouchableOpacity onPress={() => setIsActive(!isActive)}>
         <Card>
           <TitleCard>
-            <Title>Student 1</Title>
+            <Title>{title}</Title>
             <ButtonCheck />
           </TitleCard>
         </Card>
       </TouchableOpacity>
       {isActive && (
         <DescriptionCard>
-          <Description>Description : </Description>
-          <Description>Urgent j'ai un probblème avec Strapi</Description>
+          {/* <Description>Description : {description}</Description> */}
+          <Description>{message}</Description>
         </DescriptionCard>
       )}
     </SafeAreaView>
