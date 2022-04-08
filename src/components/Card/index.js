@@ -34,7 +34,7 @@ export default function Cards({title}) {
   )
 }
 
-const Card = styled.View`
+const Card = styled.TouchableOpacity`
   margin-top: 10px;
   height: 40px;
   background-color: white;
