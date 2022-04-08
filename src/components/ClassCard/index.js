@@ -22,7 +22,7 @@ const Title = styled.Text`
   font-weight: 300;
   align-items: center;
 `
-const Card = styled.View`
+const Card = styled.TouchableOpacity`
   height: 70px;
   width: 350px;
   margin-top: 20px;
