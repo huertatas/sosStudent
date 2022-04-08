@@ -20,16 +20,20 @@ export const getNotifs = () => dispatch => {
     })
 }
 
-export const createNotif = () => dispatch => {
+export const createNotif = (idRoom, helpMessage) => dispatch => {
   axios({
-    method: 'GET',
-    url: 'https://mobilebackstrapi.herokuapp.com/api/notifs'
-    // data: {
-    //   foo: 'bar',
-    // }
+    method: 'POST',
+    url: 'https://mobilebackstrapi.herokuapp.com/api/notifs',
+    data: {
+      data: {
+        Name: helpMessage.name,
+        Message: helpMessage.message,
+        room: idRoom
+      }
+    }
   })
     .then(response => {
-      dispatch(displayNotifs(response.data.data))
+      console.log(response)
     })
     .catch(error => {
       console.log(error)

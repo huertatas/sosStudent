@@ -5,7 +5,7 @@ import Title from '../../components/Title'
 import { getRooms } from '../../actions/room'
 import { getNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
-import AddButton from "../../components/ButtonAddMore"
+import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
 
 export default function Home() {
@@ -23,18 +23,18 @@ export default function Home() {
     <SafeAreaView>
       <View>
         <Title title='ClassRooms' />
-        <ClassCard title='ClassRoom1' />
-        <ClassCard title='ClassRoom2' />
+        <ClassCard title='ClassRoom1' OnPress={() => console.log('click')} />
+        <ClassCard title='ClassRoom2' OnPress={() => console.log('click')} />
+        <ButtonView>
+          <AddButton />
+        </ButtonView>
       </View>
-      <ButtonView>
-        <AddButton/>
-      </ButtonView>
     </SafeAreaView>
   )
 }
 
 const ButtonView = styled.View`
-position: absolute;
-right: 5%;
-top:650px;
+  position: absolute;
+  bottom: -80px;
+  right: 40px;
 `

@@ -21,4 +21,5 @@ const ButtonAddStyled = styled.TouchableOpacity`
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
+  background-color: ${colors.darkBackground};
 `
