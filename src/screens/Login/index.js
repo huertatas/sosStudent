@@ -6,7 +6,7 @@ import Image from '../../components/Image'
 
 const Login = ({ navigation }) => {
   const handleSubmit = () => {
-    navigation.navigate('ProfessorAddNewRoom')
+    navigation.navigate('ProfessorClassRoom')
   }
 
   return (
