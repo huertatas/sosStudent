@@ -8,22 +8,17 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/login'
 
 const Login = ({ navigation }) => {
-  const token = useSelector(state => state.token)
+  const token = useSelector(state => state.login)
   const dispatch = useDispatch()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  useEffect(() => {
-    console.log(`🚧👷 Debug  : token = ${token}`)
-  }, [token])
+  console.log('token ' + JSON.stringify(token))
 
-  useEffect(() => {
-    console.log(`♿️♿️ Debug  : email = ${email},  password= ${password}`)
-  }, [email, password])
+  const handleSubmit = async () => {
+    await dispatch(login({ email, password }))
 
-  const handleSubmit = () => {
-    // dispatch(login({email, password}))
     navigation.navigate('ProfessorClassRoom')
   }
 

@@ -1,25 +1,23 @@
 import axios from 'axios'
-export const GET_USER_TOKEN = 'GET_USER_TOKEN'
+export const DISPLAY_USER_TOKEN = 'DISPLAY_USER_TOKEN'
 
 export const displayUserToken = payload => ({
-  type: GET_USER_TOKEN,
+  type: DISPLAY_USER_TOKEN,
   payload
 })
 
-export const login = ({email, password}) => dispatch => {
-  // axios({
-  //   method: 'POST',
-  //   url: 'https://mobilebackstrapi.herokuapp.com/api/auth/local',
-  //   data: {
-  //     identifier: email,
-  //     password: password
-  //   }
-  // })
-  axios.post('https://mobilebackstrapi.herokuapp.com/api/auth/local', {
-    identifier: email,
-    password: password
-  }).then(response => dispatch(displayUserToken(response)))
-    .catch(error =>{console.log(`🐛🐛🐛 Error in login action:${error}`)
-    console.log(`🐛🐛🐛 amil:${email} pass:${password}`)} )
-}
-
+export const login =
+  ({ email, password }) =>
+  dispatch => {
+    axios
+      .post('https://mobilebackstrapi.herokuapp.com/api/auth/local', {
+        identifier: email,
+        password: password
+      })
+      .then(response => {
+        dispatch(displayUserToken(response.data))
+      })
+      .catch(error => {
+        console.log(`🐛🐛🐛 Error in login action:${error}`)
+      })
+  }

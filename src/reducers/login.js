@@ -1,4 +1,4 @@
-import { GET_USER_TOKEN } from '../actions/login'
+import { DISPLAY_USER_TOKEN } from '../actions/login'
 
 const initialState = {
   token: {}
@@ -6,8 +6,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case GET_USER_TOKEN:
-      return { ...state, ...action.payload }
+    case DISPLAY_USER_TOKEN:
+      return { ...state, token: action.payload }
     default:
       return state
   }
