@@ -4,9 +4,9 @@ import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
 import { colors } from '../../helpers/colors'
 
-export default function ButtonAdd({ textButton }) {
+export default function ButtonAdd({ textButton, button }) {
   return (
-    <ButtonAddStyled>
+    <ButtonAddStyled onPress={() => button()}>
       <Ionicons name={'add-outline'} size={30} color='white' />
     </ButtonAddStyled>
   )

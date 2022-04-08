@@ -15,10 +15,14 @@ export default function Home({ navigation }) {
   console.log('🚀 ~ file: ClassRooms.js ~ line 10 ~ Home ~ rooms', rooms)
   const dispatch = useDispatch()
 
-  const handleNavigateToCreateRoom = () => {
+  const handleNavigateToWaitingRoom = () => {
     navigation.navigate('ProfessorWaitingRoom', {
-      itemId: 2
+      roomId: 2
     })
+  }
+
+  const handleNavigateToCreateRoom = () => {
+    navigation.navigate('ProfessorAddNewRoom')
   }
 
   useEffect(() => {
@@ -31,21 +35,21 @@ export default function Home({ navigation }) {
         <Title title='ClassRooms' />
         <ClassCard
           title='ClassRoom1'
-          button={() => handleNavigateToCreateRoom()}
+          button={() => handleNavigateToWaitingRoom()}
         />
         <ClassCard
           title='ClassRoom2'
-          button={() => handleNavigateToCreateRoom()}
+          button={() => handleNavigateToWaitingRoom()}
         />
         <ButtonView>
-          <AddButton />
+          <AddButton button={handleNavigateToCreateRoom} />
         </ButtonView>
       </View>
     </SafeAreaView>
   )
 }
 
-const ButtonView = styled.View`
+const ButtonView = styled.TouchableOpacity`
   position: absolute;
   bottom: -80px;
   right: 40px;

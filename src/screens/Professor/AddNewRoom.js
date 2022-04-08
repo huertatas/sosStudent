@@ -30,7 +30,7 @@ const AddNewRoom = () => {
           onChangeValue={setInput}
           placeholder={'Class name'}
         />
-        <SubmitButton textButton={'Create'} />
+        <SubmitButton button={handleCreateNewRoom} textButton={'Create'} />
       </Container>
     </SafeAreaView>
   )
