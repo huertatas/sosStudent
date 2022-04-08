@@ -16,7 +16,7 @@ const ButtonCheckStyled = styled.TouchableOpacity`
   width: 40px;
   height: 40px;
   border-radius: ${40 / 2};
-  background: green;
+  background: ${colors.brightGreen};
   display: flex;
   justify-content: center;
   align-items: center;

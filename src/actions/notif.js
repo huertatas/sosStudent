@@ -11,9 +11,21 @@ export const getNotifs = () => dispatch => {
   axios({
     method: 'GET',
     url: 'https://mobilebackstrapi.herokuapp.com/api/notifs'
-    // params: {
-    //   limit: 20,
-    //   offset
+  })
+    .then(response => {
+      dispatch(displayNotifs(response.data.data))
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
+export const createNotif = () => dispatch => {
+  axios({
+    method: 'GET',
+    url: 'https://mobilebackstrapi.herokuapp.com/api/notifs'
+    // data: {
+    //   foo: 'bar',
     // }
   })
     .then(response => {

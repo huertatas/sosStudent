@@ -11,9 +11,21 @@ export const getRooms = () => dispatch => {
   axios({
     method: 'GET',
     url: 'https://mobilebackstrapi.herokuapp.com/api/rooms'
-    // params: {
-    //   limit: 20,
-    //   offset
+  })
+    .then(response => {
+      dispatch(displayRoom(response.data.data))
+    })
+    .catch(error => {
+      console.log(error)
+    })
+}
+
+export const createRoom = () => dispatch => {
+  axios({
+    method: 'GET',
+    url: 'https://mobilebackstrapi.herokuapp.com/api/rooms'
+    // data: {
+    //   foo: 'bar',
     // }
   })
     .then(response => {

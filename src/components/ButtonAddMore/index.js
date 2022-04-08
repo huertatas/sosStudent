@@ -16,7 +16,7 @@ const ButtonAddStyled = styled.TouchableOpacity`
   width: 50px;
   height: 50px;
   border-radius: ${50 / 2};
-  background: grey;
+  background: ${colors.brightGrey};
   display: flex;
   justify-content: center;
   align-items: center;
