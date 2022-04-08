@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { View, Text, Button, SafeAreaView, TouchableOpacity } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
-
+import Ionicons from 'react-native-vector-icons/Ionicons'
+import ButtonCheck from '../ButtonCheck';
+Ionicons.loadFont().then();
 export default function Cards({title}) {
   const [isActive, setIsActive] = useState(false);
   return (
@@ -12,7 +14,7 @@ export default function Cards({title}) {
     <Card>
       <TitleCard> 
       <Title>Student 1</Title>
-      <Title2>Stud</Title2>
+      <ButtonCheck/>
       </TitleCard>
     </Card>
     </TouchableOpacity>
@@ -38,7 +40,8 @@ border-radius:10px
 
 const TitleCard = styled.View`
 flex-direction:row;
-justify-content:space-between
+justify-content:space-between;
+align-items:center;
 `
 const DescriptionCard = styled.View`
 height:100px;

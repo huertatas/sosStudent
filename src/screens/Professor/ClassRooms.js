@@ -5,6 +5,8 @@ import Title from '../../components/Title'
 import { getRooms } from '../../actions/room'
 import { getNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
+import AddButton from "../../components/ButtonAddMore"
+import styled from 'styled-components'
 
 export default function Home() {
   const rooms = useSelector(state => state.rooms)
@@ -24,6 +26,15 @@ export default function Home() {
         <ClassCard title='ClassRoom1' />
         <ClassCard title='ClassRoom2' />
       </View>
+      <ButtonView>
+        <AddButton/>
+      </ButtonView>
     </SafeAreaView>
   )
 }
+
+const ButtonView = styled.View`
+position: absolute;
+right: 5%;
+top:650px;
+`

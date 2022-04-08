@@ -7,15 +7,15 @@ import { colors } from '../../helpers/colors'
 export default function ButtonCheck({ textButton }) {
   return (
     <ButtonCheckStyled>
-      <Ionicons name={'checkmark-outline'} size={30} color='white' />
+      <Ionicons name={'checkmark-outline'} size={25} color='white' />
     </ButtonCheckStyled>
   )
 }
 
 const ButtonCheckStyled = styled.TouchableOpacity`
-  width: 40px;
-  height: 40px;
-  border-radius: ${40 / 2};
+  width: 30px;
+  height: 30px;
+  border-radius: ${30 / 2};
   background: green;
   display: flex;
   justify-content: center;
