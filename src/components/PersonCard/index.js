@@ -31,7 +31,7 @@ const Title = styled.Text`
 const Card = styled.TouchableOpacity`
   height: 40px;
   width: 350px;
-  background-color: white;
+  background-color: ${colors.lightBackground};
   margin-left: 20px;
 `
 const SubCard = styled.View`
