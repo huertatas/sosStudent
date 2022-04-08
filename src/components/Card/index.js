@@ -10,26 +10,28 @@ import {
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import ButtonCheck from '../ButtonCheck';
-Ionicons.loadFont().then();
-export default function Cards({title}) {
-  const [isActive, setIsActive] = useState(false);
+import ButtonCheck from '../ButtonCheck'
+import { colors } from '../../helpers/colors'
+Ionicons.loadFont().then()
+
+export default function Cards({ title }) {
+  const [isActive, setIsActive] = useState(false)
   return (
     <SafeAreaView>
-      <TouchableOpacity onPress={()=> setIsActive(!isActive)}>
-    <Card>
-      <TitleCard> 
-      <Title>Student 1</Title>
-      <ButtonCheck/>
-      </TitleCard>
-    </Card>
-    </TouchableOpacity>
-    {isActive &&
-    <DescriptionCard>
-    <Description>Description : </Description>
-    <Description>Urgent j'ai un probblème avec Strapi</Description>
-    </DescriptionCard>
-  }
+      <TouchableOpacity onPress={() => setIsActive(!isActive)}>
+        <Card>
+          <TitleCard>
+            <Title>Student 1</Title>
+            <ButtonCheck />
+          </TitleCard>
+        </Card>
+      </TouchableOpacity>
+      {isActive && (
+        <DescriptionCard>
+          <Description>Description : </Description>
+          <Description>Urgent j'ai un probblème avec Strapi</Description>
+        </DescriptionCard>
+      )}
     </SafeAreaView>
   )
 }
@@ -37,7 +39,7 @@ export default function Cards({title}) {
 const Card = styled.View`
   margin-top: 10px;
   height: 40px;
-  background-color: white;
+  background-color: ${colors.lightBackground};
   width: 350px;
   margin-left: 20px;
   justify-content: center;
@@ -45,13 +47,13 @@ const Card = styled.View`
 `
 
 const TitleCard = styled.View`
-flex-direction:row;
-justify-content:space-between;
-align-items:center;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `
 const DescriptionCard = styled.View`
   height: 100px;
-  background-color:white;
+  background-color: ${colors.lightBackground};
   width: 350px;
   margin-left: 20px;
   border-bottom-right-radius: 10px;
