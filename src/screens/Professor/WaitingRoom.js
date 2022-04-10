@@ -25,10 +25,6 @@ export default function WaitingRoom({ route }) {
     dispatch(getRoomById(roomId))
   }, [])
 
-  useFocusEffect(() => {
-   dispatch(getRoomById(roomId))
-  })
-
   return (
     <SafeAreaView>
       <View>
