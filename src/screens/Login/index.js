@@ -6,21 +6,29 @@ import Image from '../../components/Image'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/login'
+import { useFocusEffect } from '@react-navigation/native'
 
 const Login = ({ navigation }) => {
-  const token = useSelector(state => state.login)
+  const loginInfo = useSelector(state => state.login.userInfo)
   const dispatch = useDispatch()
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  console.log('token ' + JSON.stringify(token))
-
   const handleSubmit = async () => {
     await dispatch(login({ email, password }))
+  }
 
+  const handleNvigateToApp = () => {
     navigation.navigate('ProfessorClassRoom')
   }
+
+  useFocusEffect(() => {
+    if (Object.keys(loginInfo).length === 0) {
+      return
+    }
+    handleNvigateToApp()
+  })
 
   return (
     <Container>

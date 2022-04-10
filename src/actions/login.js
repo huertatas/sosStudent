@@ -1,8 +1,8 @@
 import axios from 'axios'
-export const DISPLAY_USER_TOKEN = 'DISPLAY_USER_TOKEN'
+export const DISPLAY_USER_INFO = 'DISPLAY_USER_INFO'
 
-export const displayUserToken = payload => ({
-  type: DISPLAY_USER_TOKEN,
+export const displayUserInfo = payload => ({
+  type: DISPLAY_USER_INFO,
   payload
 })
 
@@ -15,7 +15,7 @@ export const login =
         password: password
       })
       .then(response => {
-        dispatch(displayUserToken(response.data))
+        dispatch(displayUserInfo(response.data.user))
       })
       .catch(error => {
         console.log(`🐛🐛🐛 Error in login action:${error}`)

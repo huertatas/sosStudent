@@ -1,5 +1,4 @@
-import { DISPLAY_ROOMS } from '../actions/room'
-import { DISPLAY_ROOM_BY_ID } from '../actions/room'
+import { DISPLAY_ROOMS, DISPLAY_ROOM_BY_ID } from '../actions/room'
 
 const initialState = {
   rooms: [],

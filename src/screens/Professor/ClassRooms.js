@@ -11,11 +11,7 @@ import styled from 'styled-components'
 export default function Home({ navigation }) {
   const rooms = useSelector(state => state.rooms)
   const notifs = useSelector(state => state.notifs)
-  console.log(
-    '🚀 ~ file: ClassRooms.js ~ line 12 ~ Home ~ notifs',
-    notifs.notifs
-  )
-  console.log('🚀 ~ file: ClassRooms.js ~ line 10 ~ Home ~ rooms', rooms.rooms)
+
   const dispatch = useDispatch()
 
   const handleNavigateToWaitingRoom = id => {
