@@ -7,7 +7,7 @@ export const displayUserInfo = payload => ({
 })
 
 export const login =
-  ({ email, password }) =>
+  ({ email, password, navigation }) =>
   dispatch => {
     axios
       .post('https://mobilebackstrapi.herokuapp.com/api/auth/local', {
@@ -16,6 +16,12 @@ export const login =
       })
       .then(response => {
         dispatch(displayUserInfo(response.data.user))
+
+        if (response.data.user.custom_role === 'student') {
+          navigation.navigate('StudentJoinRoom')
+        } else {
+          navigation.navigate('ProfessorClassRoom')
+        }
       })
       .catch(error => {
         console.log(`🐛🐛🐛 Error in login action:${error}`)

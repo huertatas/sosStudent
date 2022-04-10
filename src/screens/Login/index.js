@@ -16,11 +16,15 @@ const Login = ({ navigation }) => {
   const [password, setPassword] = useState('')
 
   const handleSubmit = async () => {
-    await dispatch(login({ email, password }))
+    await dispatch(login({ email, password, navigation }))
   }
 
   const handleNvigateToApp = () => {
-    navigation.navigate('ProfessorClassRoom')
+    if (loginInfo.custom_role === 'student') {
+      navigation.navigate('StudentJoinRoom')
+    } else {
+      navigation.navigate('ProfessorClassRoom')
+    }
   }
 
   useFocusEffect(() => {
