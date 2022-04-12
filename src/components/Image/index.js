@@ -5,18 +5,15 @@ const Image = ({ uri }) => {
   return (
     <MainView>
     <AppImage
-      source={{
-        uri: uri
-      }}
+      source={uri}
     />
     </MainView>
   )
 }
 
 const AppImage = styled.Image`
-  width: 240px;
+  width: 100%;
   height: 240px;
-  margin: 6px;
 `
 const MainView = styled.View`
 justify-content:center;

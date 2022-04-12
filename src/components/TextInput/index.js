@@ -7,6 +7,8 @@ const TextInput = ({
   onChangeValue,
   placeholder,
   multiline = false,
+  secureTextEntry,
+  autoCapitalize,
   numberOfLines = 1
 }) => {
   return (
@@ -15,7 +17,9 @@ const TextInput = ({
       value={value}
       placeholder={placeholder}
       multiline={multiline}
+      autoCapitalize={autoCapitalize}
       numberOfLines={numberOfLines}
+      secureTextEntry={secureTextEntry}
     />
   )
 }
@@ -23,12 +27,12 @@ const TextInput = ({
 const Input = styled.TextInput`
   width: 80%;
   margin: 16px auto;
-  padding-left: 6px;
-  height:40px;
+  padding-left: 10px;
+  height:50px;
   color: black;
   background-color: ${colors.lightBackground};
-  border: 1px solid;
-  border-radius: 6px;
+  border: 2px solid ;
+  border-radius: 30px;
   font-size: 20px;
 `
 
