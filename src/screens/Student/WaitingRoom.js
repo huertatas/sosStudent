@@ -16,10 +16,7 @@ Ionicons.loadFont().then()
 export default function StudentWaitingRoom({ route, navigation }) {
   const roomId = route.params.roomId
   const rooms = useSelector(state => state.rooms.room)
-  console.log(
-    '🚀 ~ file: WaitingRoom.js ~ line 15 ~ WaitingRoom ~ rooms',
-    rooms
-  )
+
   const dispatch = useDispatch()
 
   const handleNavigateToCreateNotif = () => {
@@ -30,11 +27,10 @@ export default function StudentWaitingRoom({ route, navigation }) {
 
   useEffect(() => {
     const subscribeToRoom = setInterval(() => {
-      console.log('refetch')
       dispatch(getRoomById(roomId))
     }, 5000)
     dispatch(getRoomById(roomId))
-    // Indique comment nettoyer l'effet :
+
     return function unubscribeToRoom() {
       clearInterval(subscribeToRoom)
     }

@@ -15,10 +15,7 @@ Ionicons.loadFont().then()
 export default function WaitingRoom({ route }) {
   const roomId = route.params.roomId
   const rooms = useSelector(state => state.rooms.room)
-  console.log(
-    '🚀 ~ file: WaitingRoom.js ~ line 15 ~ WaitingRoom ~ rooms',
-    rooms
-  )
+
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -27,7 +24,6 @@ export default function WaitingRoom({ route }) {
       dispatch(getRoomById(roomId))
     }, 5000)
 
-    // Indique comment nettoyer l'effet :
     return function unubscribeToRoom() {
       clearInterval(subscribeToRoom)
     }
