@@ -1,39 +1,54 @@
+import { View, Text, Button, SafeAreaView } from 'react-native'
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView } from 'react-native'
-import styled from 'styled-components'
+import ClassCard from '../../components/ClassCard'
 import Title from '../../components/Title'
-import TextInput from '../../components/TextInput'
-import SubmitButton from '../../components/ButtonWide'
+import { getRooms } from '../../actions/room'
+import { getNotifs } from '../../actions/notif'
+import { useDispatch, useSelector } from 'react-redux'
+import AddButton from '../../components/ButtonAddMore'
+import styled from 'styled-components'
 
-const JoinRoom = () => {
-  const [input, setInput] = useState('')
-  const handleInputChange = newValue => setInput(newValue)
+export default function JoinRoom({ navigation }) {
+  const rooms = useSelector(state => state.rooms)
+  const notifs = useSelector(state => state.notifs)
+
+  const dispatch = useDispatch()
+
+  const handleNavigateToWaitingRoom = id => {
+    navigation.navigate('StudentWaitingRoom', {
+      roomId: id
+    })
+  }
 
   useEffect(() => {
-    if (input) console.log(`🚧👷 New value for input : ${input}`)
-  }, [input])
-
+    dispatch(getRooms())
+    dispatch(getNotifs())
+  }, [])
   return (
     <SafeAreaView>
-      <Container>
-        <Title title={'Join a class'} />
-        <TextInput
-          value={input}
-          onChangeValue={setInput}
-          placeholder={'Class code...'}
+      <View>
+        <Title title='ClassRooms' />
+        <FlatRooms
+          data={rooms.rooms}
+          renderItem={({ item }) => {
+            return (
+              <ClassCard
+                title={item.attributes?.Name}
+                button={() => handleNavigateToWaitingRoom(item.id)}
+              />
+            )
+          }}
+          keyExtractor={room => room.id}
         />
-        <SubmitButton textButton={'Submit'} />
-      </Container>
+      </View>
     </SafeAreaView>
   )
 }
 
-const Container = styled.View`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+const ButtonView = styled.TouchableOpacity`
+  position: absolute;
+  bottom: -80px;
+  right: 40px;
 `
 
-export default JoinRoom
+const FlatRooms = styled.FlatList``

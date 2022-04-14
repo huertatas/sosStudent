@@ -1,4 +1,4 @@
-import { View, Text, Button, SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Titles from '../../components/Title'
 import styled from 'styled-components'
@@ -7,57 +7,78 @@ import Subtitle from '../../components/Subtitle'
 import { getRoomById } from '../../actions/room'
 import { deleteNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
+import { displayNotifeeNewNotifStudent } from '../../actions/notifee'
 import Card from '../../components/Card'
-import { useFocusEffect } from '@react-navigation/native'
+import AddButton from '../../components/ButtonAddMore'
 
 Ionicons.loadFont().then()
 
-export default function WaitingRoom({ route }) {
+export default function StudentWaitingRoom({ route, navigation }) {
   const roomId = route.params.roomId
-  const rooms = useSelector(state => state.rooms.room)
-  console.log(
-    '🚀 ~ file: WaitingRoom.js ~ line 15 ~ WaitingRoom ~ rooms',
-    rooms
-  )
+  const room = useSelector(state => state.rooms.room)
+  const notifee = useSelector(state => state.rooms.infoForNotifee)
+
   const dispatch = useDispatch()
 
+  const handleNavigateToCreateNotif = () => {
+    navigation.navigate('StudentDemandProfessor', {
+      roomId: roomId
+    })
+  }
+
   useEffect(() => {
+    const subscribeToRoom = setInterval(() => {
+      dispatch(getRoomById(roomId))
+    }, 5000)
     dispatch(getRoomById(roomId))
+
+    return function unubscribeToRoom() {
+      clearInterval(subscribeToRoom)
+    }
   }, [])
+
+  useEffect(() => {
+    if (notifee) {
+      console.log('passe ici')
+      dispatch(displayNotifeeNewNotifStudent())
+    }
+  }, [notifee])
 
   return (
     <SafeAreaView>
-      <View>
-        {/* <FirstView>
-          <Ionicons name={'people'} size={30} color='black' />
-          <Code>Code : </Code>
-        </FirstView> */}
-        <Titles title={rooms.attributes?.Name} />
-        <Subtitle title='Waiting list' />
-        <FlatNotifs
-          data={rooms.attributes?.notifs.data}
-          renderItem={({ item }) => {
-            return (
-              <Card
-                title={item.attributes.Name}
-                message={item.attributes.Message}
-                button={() => dispatch(deleteNotifs(item.id))}
-              />
-            )
-          }}
-          keyExtractor={room => room.id}
-        />
-      </View>
+      <FlatNotifs
+        LisHeaderComponent={
+          <>
+            <Titles title={room.attributes?.Name} />
+            <Subtitle title='Waiting list' />
+          </>
+        }
+        data={room.attributes?.notifs.data}
+        renderItem={({ item }) => {
+          return (
+            <Card
+              title={item.attributes.Name}
+              message={item.attributes.Message}
+              button={() => dispatch(deleteNotifs(item.id))}
+              check={true}
+            />
+          )
+        }}
+        keyExtractor={room => room.id}
+        ListFooterComponent={
+          <ButtonView>
+            <AddButton button={handleNavigateToCreateNotif} />
+          </ButtonView>
+        }
+      />
     </SafeAreaView>
   )
 }
-const FirstView = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
+
+const ButtonView = styled.TouchableOpacity`
+  position: absolute;
+  bottom: -80px;
+  right: 40px;
 `
-const Code = styled.Text`
-  font-size: 18px;
-  margin-top: 5px;
-`
+
 const FlatNotifs = styled.FlatList``

@@ -33,10 +33,6 @@ export const getRoomById = roomId => dispatch => {
   })
     .then(response => {
       dispatch(displayRoomById(response.data.data))
-      console.log(
-        '🚀 ~ file: room.js ~ line 36 ~ response.data.data',
-        response.data.data
-      )
     })
     .catch(error => {
       console.log(error)
