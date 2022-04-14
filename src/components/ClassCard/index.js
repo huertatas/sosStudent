@@ -18,8 +18,8 @@ export default function PersonCard({ title,button }) {
 }
 
 const Title = styled.Text`
-  font-size: 18px;
-  font-weight: 300;
+  font-size: 19px;
+  font-weight: 500;
   align-items: center;
 `
 const Card = styled.TouchableOpacity`
@@ -30,4 +30,5 @@ const Card = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   margin-left: 20px;
+  border-radius:20px;
 `

@@ -45,7 +45,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
   }, [notifee])
 
   return (
-    <SafeAreaView>
+    <SafeView>
       <FlatNotifs
         LisHeaderComponent={
           <>
@@ -71,14 +71,17 @@ export default function StudentWaitingRoom({ route, navigation }) {
           </ButtonView>
         }
       />
-    </SafeAreaView>
+    </SafeView>
   )
 }
 
 const ButtonView = styled.TouchableOpacity`
   position: absolute;
-  bottom: -80px;
+  bottom: 10px;
   right: 40px;
 `
-
+const SafeView = styled.SafeAreaView`
+background-color:#4CA6F9;
+height:100%
+`
 const FlatNotifs = styled.FlatList``

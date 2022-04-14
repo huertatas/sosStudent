@@ -41,6 +41,7 @@ const Routes = () => {
         /> 
         <Stack.Screen 
           name='StudentJoinRoom' 
+          options={{headerShown: false, gestureEnabled:false}}
           component={StudentJoinRoom} 
         />
         <Stack.Screen

@@ -7,7 +7,7 @@ import { getNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
 import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
-
+import {colors} from "../../helpers/colors"
 export default function JoinRoom({ navigation }) {
   const rooms = useSelector(state => state.rooms)
   const notifs = useSelector(state => state.notifs)
@@ -25,8 +25,8 @@ export default function JoinRoom({ navigation }) {
     dispatch(getNotifs())
   }, [])
   return (
-    <SafeAreaView>
-      <View>
+    <SafeView>
+      <Views>
         <Title title='ClassRooms' />
         <FlatRooms
           data={rooms.rooms}
@@ -40,15 +40,21 @@ export default function JoinRoom({ navigation }) {
           }}
           keyExtractor={room => room.id}
         />
-      </View>
-    </SafeAreaView>
+      </Views>
+    </SafeView>
   )
 }
 
 const ButtonView = styled.TouchableOpacity`
   position: absolute;
-  bottom: -80px;
+  bottom: 10px;
   right: 40px;
+`
+const SafeView = styled.SafeAreaView`
+background-color:${colors.lightBackground}
+`
+const Views = styled.View`
+height:100%
 `
 
 const FlatRooms = styled.FlatList``
