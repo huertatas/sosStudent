@@ -1,4 +1,4 @@
-import { View, Text, Button, SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Titles from '../../components/Title'
 import styled from 'styled-components'
@@ -14,7 +14,7 @@ Ionicons.loadFont().then()
 
 export default function StudentWaitingRoom({ route, navigation }) {
   const roomId = route.params.roomId
-  const rooms = useSelector(state => state.rooms.room)
+  const room = useSelector(state => state.rooms.room)
 
   const dispatch = useDispatch()
 
@@ -37,27 +37,31 @@ export default function StudentWaitingRoom({ route, navigation }) {
 
   return (
     <SafeAreaView>
-      <View>
-        <Titles title={rooms.attributes?.Name} />
-        <Subtitle title='Waiting list' />
-        <FlatNotifs
-          data={rooms.attributes?.notifs.data}
-          renderItem={({ item }) => {
-            return (
-              <Card
-                title={item.attributes.Name}
-                message={item.attributes.Message}
-                button={() => dispatch(deleteNotifs(item.id))}
-                check={false}
-              />
-            )
-          }}
-          keyExtractor={room => room.id}
-        />
-        <ButtonView>
-          <AddButton button={handleNavigateToCreateNotif} />
-        </ButtonView>
-      </View>
+      <FlatNotifs
+        LisHeaderComponent={
+          <>
+            <Titles title={room.attributes?.Name} />
+            <Subtitle title='Waiting list' />
+          </>
+        }
+        data={room.attributes?.notifs.data}
+        renderItem={({ item }) => {
+          return (
+            <Card
+              title={item.attributes.Name}
+              message={item.attributes.Message}
+              button={() => dispatch(deleteNotifs(item.id))}
+              check={false}
+            />
+          )
+        }}
+        keyExtractor={room => room.id}
+        ListFooterComponent={
+          <ButtonView>
+            <AddButton button={handleNavigateToCreateNotif} />
+          </ButtonView>
+        }
+      />
     </SafeAreaView>
   )
 }
