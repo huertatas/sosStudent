@@ -4,15 +4,27 @@ import styled from 'styled-components'
 import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
+import { useDispatch, useSelector } from 'react-redux'
+import { createNotif } from '../../actions/notif'
 
 const DemandRoom = ({ route }) => {
   const roomId = route.params.roomId
+  const dispatch = useDispatch()
+  const nameUser = useSelector(state => state.login.userInfo.custom_role)
+  console.log(
+    '🚀 ~ file: DemandRoom.js ~ line 14 ~ DemandRoom ~ userInfo',
+    nameUser
+  )
   console.log(
     '🚀 ~ file: DemandRoom.js ~ line 10 ~ DemandRoom ~ roomId',
     roomId
   )
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
+
+  const createNotifRoom = () => {
+    dispatch(createNotif(roomId, { name: nameUser, message: input }))
+  }
 
   useEffect(() => {
     if (input) console.log(`🚧👷 New value for input : ${input}`)
@@ -29,7 +41,7 @@ const DemandRoom = ({ route }) => {
           multiline={true}
           numberOfLines={3}
         />
-        <SubmitButton textButton={'Add to list'} />
+        <SubmitButton textButton={'Add to list'} button={createNotifRoom} />
       </Container>
     </SafeAreaView>
   )
