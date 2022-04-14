@@ -20,10 +20,6 @@ export default function Home({ navigation }) {
     })
   }
 
-  const handleNavigateToCreateRoom = () => {
-    navigation.navigate('ProfessorAddNewRoom')
-  }
-
   useEffect(() => {
     dispatch(getRooms())
     dispatch(getNotifs())
@@ -44,9 +40,6 @@ export default function Home({ navigation }) {
           }}
           keyExtractor={room => room.id}
         />
-        <ButtonView>
-          <AddButton button={handleNavigateToCreateRoom} />
-        </ButtonView>
       </View>
     </SafeAreaView>
   )
