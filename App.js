@@ -22,6 +22,10 @@ async function requestUserPermission() {
   }
 }
 
+useEffect(() => {
+  requestUserPermission()
+}, [])
+
 const App = () => {
   return (
     <Provider store={store}>
