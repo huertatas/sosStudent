@@ -42,6 +42,7 @@ export default function WaitingRoom({ route }) {
                 title={item.attributes.Name}
                 message={item.attributes.Message}
                 button={() => dispatch(deleteNotifs(item.id))}
+                check={true}
               />
             )
           }}

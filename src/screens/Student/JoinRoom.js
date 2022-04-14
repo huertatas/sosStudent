@@ -15,7 +15,7 @@ export default function JoinRoom({ navigation }) {
   const dispatch = useDispatch()
 
   const handleNavigateToWaitingRoom = id => {
-    navigation.navigate('ProfessorWaitingRoom', {
+    navigation.navigate('StudentWaitingRoom', {
       roomId: id
     })
   }
