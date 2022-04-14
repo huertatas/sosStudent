@@ -8,11 +8,12 @@ import { getRoomById } from '../../actions/room'
 import { deleteNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
+import AddButton from '../../components/ButtonAddMore'
 import { useFocusEffect } from '@react-navigation/native'
 
 Ionicons.loadFont().then()
 
-export default function StudentWaitingRoom({ route }) {
+export default function StudentWaitingRoom({ route, navigation }) {
   const roomId = route.params.roomId
   const rooms = useSelector(state => state.rooms.room)
   console.log(
@@ -20,6 +21,10 @@ export default function StudentWaitingRoom({ route }) {
     rooms
   )
   const dispatch = useDispatch()
+
+  const handleNavigateToCreateNotif = () => {
+    navigation.navigate('StudentDemandProfessor')
+  }
 
   useEffect(() => {
     dispatch(getRoomById(roomId))
@@ -48,10 +53,20 @@ export default function StudentWaitingRoom({ route }) {
           }}
           keyExtractor={room => room.id}
         />
+        <ButtonView>
+          <AddButton button={handleNavigateToCreateNotif} />
+        </ButtonView>
       </View>
     </SafeAreaView>
   )
 }
+
+const ButtonView = styled.TouchableOpacity`
+  position: absolute;
+  bottom: -80px;
+  right: 40px;
+`
+
 const FirstView = styled.View`
   flex-direction: row;
   justify-content: space-around;
