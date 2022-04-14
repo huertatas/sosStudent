@@ -9,7 +9,6 @@ import { deleteNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
-import { useFocusEffect } from '@react-navigation/native'
 
 Ionicons.loadFont().then()
 
@@ -39,10 +38,6 @@ export default function StudentWaitingRoom({ route, navigation }) {
   return (
     <SafeAreaView>
       <View>
-        {/* <FirstView>
-          <Ionicons name={'people'} size={30} color='black' />
-          <Code>Code : </Code>
-        </FirstView> */}
         <Titles title={rooms.attributes?.Name} />
         <Subtitle title='Waiting list' />
         <FlatNotifs
@@ -73,13 +68,4 @@ const ButtonView = styled.TouchableOpacity`
   right: 40px;
 `
 
-const FirstView = styled.View`
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-`
-const Code = styled.Text`
-  font-size: 18px;
-  margin-top: 5px;
-`
 const FlatNotifs = styled.FlatList``
