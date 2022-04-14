@@ -31,6 +31,13 @@ const Routes = () => {
         <Stack.Screen
           name='ProfessorWaitingRoom'
           component={ProfessorWaitingRoom}
+          options={{
+            headerBackTitle:"",
+            headerTintColor: 'black',
+            headerTitleStyle:{
+              color:"white"
+            }
+          }}
         /> 
         <Stack.Screen 
           name='StudentJoinRoom' 

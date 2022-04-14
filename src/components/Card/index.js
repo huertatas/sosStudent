@@ -20,13 +20,17 @@ export default function Cards({ title, message, button, check }) {
     <SafeAreaView>
       <Card onPress={() => setIsActive(!isActive)}>
         <TitleCard>
-          <Title>{title}</Title>
+        <SubTitleView>
+        <Title>Nom de l'élève : {title}</Title> 
+        <IconView><Ionicons name={'chevron-down-outline'} color={colors.lightTextColor} size={30} /></IconView>
+        </SubTitleView>
           {check && <ButtonCheck button={button} />}
         </TitleCard>
       </Card>
       {isActive && (
         <DescriptionCard>
           {/* <Description>Description : {description}</Description> */}
+          <Description>Description :</Description>
           <Description>{message}</Description>
         </DescriptionCard>
       )}
@@ -36,14 +40,24 @@ export default function Cards({ title, message, button, check }) {
 
 const Card = styled.TouchableOpacity`
   margin-top: 10px;
-  height: 40px;
+  height: 60px;
   background-color: ${colors.lightBackground};
   width: 350px;
   margin-left: 20px;
   justify-content: center;
   border-radius: 10px;
 `
-
+const SubTitleView = styled.View`
+flex-direction:column;
+align-items:center;
+justify-content:center;
+`
+const IconView = styled.Text`
+color:red;
+font-size:20px;
+display:flex;
+align-items-center;
+justify-content:center;`
 const TitleCard = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -63,6 +77,8 @@ const Title = styled.Text`
   font-weight: 300;
   align-items: center;
   margin-left: 20px;
+  align-items:center;
+  justify-content:center;
 `
 
 const Description = styled.Text`
