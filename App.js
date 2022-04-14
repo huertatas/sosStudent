@@ -8,25 +8,24 @@ import { store } from './src/config/store'
 
 import notifee, { AuthorizationStatus } from '@notifee/react-native'
 
-async function requestUserPermission() {
-  const settings = await notifee.requestPermission()
+const App = () => {
+  async function requestUserPermission() {
+    const settings = await notifee.requestPermission()
 
-  if (settings.authorizationStatus) {
-    console.log('User has notification permissions enabled')
-  } else {
-    if (settings.authorizationStatus >= AuthorizationStatus.AUTHORIZED) {
-      console.log('Permission settings:', settings)
+    if (settings.authorizationStatus) {
+      console.log('User has notification permissions enabled')
     } else {
-      console.log('User declined permissions')
+      if (settings.authorizationStatus >= AuthorizationStatus.AUTHORIZED) {
+        console.log('Permission settings:', settings)
+      } else {
+        console.log('User declined permissions')
+      }
     }
   }
-}
 
-useEffect(() => {
-  requestUserPermission()
-}, [])
-
-const App = () => {
+  useEffect(() => {
+    requestUserPermission()
+  }, [])
   return (
     <Provider store={store}>
       <Routes />
