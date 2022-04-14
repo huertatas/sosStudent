@@ -22,6 +22,7 @@ const Routes = () => {
         <Stack.Screen
           name='ProfessorClassRoom'
           component={ProfessorClassRoom}
+          options={{headerShown: false, gestureEnabled:false}}
         />
         <Stack.Screen
           name='ProfessorAddNewRoom'

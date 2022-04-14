@@ -68,7 +68,7 @@ align-items:center;
 const Submit = styled.TouchableOpacity`
 height:50px;
 width:300px;
-background-color:#4E25DE;
+background-color:#1E276F;
 justify-content:center;
 align-items:center;
 border-radius:10px;

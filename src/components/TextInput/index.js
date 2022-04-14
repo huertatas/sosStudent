@@ -31,7 +31,7 @@ const Input = styled.TextInput`
   height:50px;
   color: black;
   background-color: ${colors.lightBackground};
-  border: 2px solid ;
+  border: 2px solid #1E276F;
   border-radius: 30px;
   font-size: 20px;
 `
