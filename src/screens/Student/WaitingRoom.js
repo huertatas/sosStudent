@@ -23,7 +23,9 @@ export default function StudentWaitingRoom({ route, navigation }) {
   const dispatch = useDispatch()
 
   const handleNavigateToCreateNotif = () => {
-    navigation.navigate('StudentDemandProfessor')
+    navigation.navigate('StudentDemandProfessor', {
+      roomId: roomId
+    })
   }
 
   useEffect(() => {

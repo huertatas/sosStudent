@@ -5,7 +5,12 @@ import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
 
-const DemandRoom = () => {
+const DemandRoom = ({ route }) => {
+  const roomId = route.params.roomId
+  console.log(
+    '🚀 ~ file: DemandRoom.js ~ line 10 ~ DemandRoom ~ roomId',
+    roomId
+  )
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
 
