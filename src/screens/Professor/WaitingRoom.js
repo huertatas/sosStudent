@@ -22,7 +22,15 @@ export default function WaitingRoom({ route }) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getRoomById(roomId))
+    const subscribeToRoom = setInterval(() => {
+      console.log('refetch')
+      dispatch(getRoomById(roomId))
+    }, 5000)
+
+    // Indique comment nettoyer l'effet :
+    return function unubscribeToRoom() {
+      clearInterval(subscribeToRoom)
+    }
   }, [])
 
   return (

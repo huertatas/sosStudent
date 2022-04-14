@@ -29,7 +29,15 @@ export default function StudentWaitingRoom({ route, navigation }) {
   }
 
   useEffect(() => {
+    const subscribeToRoom = setInterval(() => {
+      console.log('refetch')
+      dispatch(getRoomById(roomId))
+    }, 5000)
     dispatch(getRoomById(roomId))
+    // Indique comment nettoyer l'effet :
+    return function unubscribeToRoom() {
+      clearInterval(subscribeToRoom)
+    }
   }, [])
 
   return (
