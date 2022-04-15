@@ -1,18 +1,18 @@
 import styled from 'styled-components'
-import { View, Text, Button, SafeAreaView } from 'react-native'
+import { SafeAreaView } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../../helpers/colors'
 
-export default function PersonCard({ title,button }) {
+export default function PersonCard({ title, button }) {
   return (
     <SafeAreaView>
-      <View>
+      <ViewCard>
         <Card onPress={button}>
           <Title>{title}</Title>
         </Card>
-      </View>
+      </ViewCard>
     </SafeAreaView>
   )
 }
@@ -24,11 +24,15 @@ const Title = styled.Text`
 `
 const Card = styled.TouchableOpacity`
   height: 70px;
-  width: 350px;
+  width: 80%;
   margin-top: 20px;
-  background-color:white;
+  background-color: white;
   justify-content: center;
   align-items: center;
-  margin-left: 20px;
-  border-radius:20px;
+  border-radius: 20px;
+`
+
+const ViewCard = styled.View`
+  justify-content: center;
+  align-items: center;
 `

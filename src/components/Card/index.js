@@ -20,10 +20,16 @@ export default function Cards({ title, message, button, check }) {
     <SafeAreaView>
       <Card onPress={() => setIsActive(!isActive)}>
         <TitleCard>
-        <SubTitleView>
-        <Title>Nom de l'élève : {title}</Title> 
-        <IconView><Ionicons name={'chevron-down-outline'} color={colors.darkTextColor} size={30} /></IconView>
-        </SubTitleView>
+          <SubTitleView>
+            <Title>Nom de l'élève : {title}</Title>
+            <IconView>
+              <Ionicons
+                name={'chevron-down-outline'}
+                color={colors.darkTextColor}
+                size={30}
+              />
+            </IconView>
+          </SubTitleView>
           {check && <ButtonCheck button={button} />}
         </TitleCard>
       </Card>
@@ -42,22 +48,23 @@ const Card = styled.TouchableOpacity`
   margin-top: 10px;
   height: 60px;
   background-color: ${colors.lightTextColor};
-  width: 350px;
+  width: 90%;
   margin-left: 20px;
   justify-content: center;
   border-radius: 10px;
 `
 const SubTitleView = styled.View`
-flex-direction:column;
-align-items:center;
-justify-content:center;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 `
 const IconView = styled.Text`
-color:red;
-font-size:20px;
-display:flex;
-align-items-center;
-justify-content:center;`
+  color: red;
+  font-size: 20px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+`
 const TitleCard = styled.View`
   flex-direction: row;
   justify-content: space-between;
@@ -77,8 +84,8 @@ const Title = styled.Text`
   font-weight: 300;
   align-items: center;
   margin-left: 20px;
-  align-items:center;
-  justify-content:center;
+  align-items: center;
+  justify-content: center;
 `
 
 const Description = styled.Text`

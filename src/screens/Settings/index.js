@@ -4,16 +4,31 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../../helpers/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { logout } from '../../actions/login'
 
 export default function Settings({ navigation }) {
+  const dispatch = useDispatch()
   const [themeColor, setThemeColor] = useState(false)
 
   const handleChangeTheme = () => {
     setThemeColor(!themeColor)
   }
 
+  const handleLogout = () => {
+    dispatch(logout())
+    navigation.navigate('Login')
+  }
+
   return (
     <MainView>
+      <Title>Déconnexion</Title>
+      <ButtonTouch onPress={handleLogout}>
+        <Ionicons
+          name={'log-out-outline'}
+          color={colors.lightTextColor}
+          size={30}
+        />
+      </ButtonTouch>
       <Title>Thème couleur</Title>
       <ButtonTouch>
         {!themeColor && (
@@ -36,7 +51,7 @@ export default function Settings({ navigation }) {
       <Title>Changer de langue</Title>
       <ButtonTouch onPress={() => navigation.navigate('Settings')}>
         <Ionicons
-          name={'cog-outline'}
+          name={'language-outline'}
           color={colors.lightTextColor}
           size={30}
         />
