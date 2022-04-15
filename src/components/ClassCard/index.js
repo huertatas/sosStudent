@@ -3,7 +3,9 @@ import { SafeAreaView } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function PersonCard({ title, button }) {
   return (

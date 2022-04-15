@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function ButtonCheck({ textButton, button }) {
   return (

@@ -7,8 +7,10 @@ import { getNotifs } from '../../actions/notif'
 import { useDispatch, useSelector } from 'react-redux'
 import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
-import { colors } from '../../helpers/colors'
 import Header from '../../components/Header'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function JoinRoom({ navigation }) {
   const rooms = useSelector(state => state.rooms)
@@ -56,7 +58,7 @@ const ButtonView = styled.TouchableOpacity`
   right: 40px;
 `
 const SafeView = styled.SafeAreaView`
-  background-color: ${colors.lightBackground};
+  background-color: ${colors.backgroundColor};
 `
 const Views = styled.View`
   height: 100%;

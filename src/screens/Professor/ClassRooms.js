@@ -11,7 +11,9 @@ import { displayNotifeeQuitApp } from '../../actions/notifee'
 import Header from '../../components/Header'
 import { AppState } from 'react-native'
 import notifee from '@notifee/react-native'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function Home({ navigation }) {
   const appState = useRef(AppState.currentState)

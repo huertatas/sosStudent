@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function ButtonWide({ textButton, button }) {
   return (

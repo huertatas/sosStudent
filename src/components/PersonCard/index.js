@@ -4,7 +4,9 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 Ionicons.loadFont().then()
 export default function PersonCard({ title }) {
@@ -31,7 +33,7 @@ const Title = styled.Text`
 const Card = styled.TouchableOpacity`
   height: 40px;
   width: 350px;
-  background-color: ${colors.lightBackground};
+  background-color: ${colors.backgroundColor};
   margin-left: 20px;
 `
 const SubCard = styled.View`

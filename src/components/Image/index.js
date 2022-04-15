@@ -1,5 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 const Image = ({ uri }) => {
   return (

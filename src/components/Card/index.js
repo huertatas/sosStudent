@@ -11,7 +11,10 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonCheck from '../ButtonCheck'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
+
 Ionicons.loadFont().then()
 
 export default function Cards({ title, message, button, check }) {

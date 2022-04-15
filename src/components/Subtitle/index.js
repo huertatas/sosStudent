@@ -3,6 +3,9 @@ import { View, Text, Button, SafeAreaView } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function SubTitles({title}) {
 

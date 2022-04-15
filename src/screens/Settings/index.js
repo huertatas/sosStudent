@@ -2,9 +2,11 @@ import styled from 'styled-components'
 import { incrementCounter, decrementCounter } from '../../actions/counter'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { colors } from '../../helpers/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { logout } from '../../actions/login'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 export default function Settings({ navigation }) {
   const dispatch = useDispatch()
@@ -64,7 +66,7 @@ const MainView = styled.View`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
   height: 100%;
 `
 const Title = styled.Text`

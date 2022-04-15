@@ -6,7 +6,9 @@ import SubmitButton from '../../components/ButtonWide'
 import { createRoom } from '../../actions/room'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 const AddNewRoom = ({ navigation }) => {
   const [input, setInput] = useState('')
@@ -44,11 +46,11 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
 `
 
 const SafeView = styled.SafeAreaView`
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
 `
 
 export default AddNewRoom

@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { colors } from '../../helpers/colors'
+import { store } from '../../../App'
+
+let colors = store.getState().colors.colorTheme
 
 const TextInput = ({
   value,
@@ -28,10 +30,10 @@ const Input = styled.TextInput`
   width: 80%;
   margin: 16px auto;
   padding-left: 10px;
-  height:50px;
+  height: 50px;
   color: black;
-  background-color: ${colors.lightBackground};
-  border: 2px solid #1E276F;
+  background-color: ${colors.backgroundColor};
+  border: 2px solid #1e276f;
   border-radius: 30px;
   font-size: 20px;
 `
