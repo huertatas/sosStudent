@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView } from 'react-native'
 import styled from 'styled-components'
 import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
@@ -7,6 +6,7 @@ import SubmitButton from '../../components/ButtonWide'
 import { createRoom } from '../../actions/room'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header'
+import { colors } from '../../helpers/colors'
 
 const AddNewRoom = ({ navigation }) => {
   const [input, setInput] = useState('')
@@ -23,7 +23,7 @@ const AddNewRoom = ({ navigation }) => {
   }, [input])
 
   return (
-    <SafeAreaView>
+    <SafeView>
       <Header title='ClassRooms' navigation={navigation} />
       <Container>
         <Title title={'Add a new class'} />
@@ -34,7 +34,7 @@ const AddNewRoom = ({ navigation }) => {
         />
         <SubmitButton button={handleCreateNewRoom} textButton={'Create'} />
       </Container>
-    </SafeAreaView>
+    </SafeView>
   )
 }
 
@@ -44,6 +44,11 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background: ${colors.lightBackground};
+`
+
+const SafeView = styled.SafeAreaView`
+  background: ${colors.lightBackground};
 `
 
 export default AddNewRoom

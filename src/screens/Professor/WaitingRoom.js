@@ -66,7 +66,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
 }
 
 const SafeView = styled.SafeAreaView`
-  background-color: ${colors.lightTextColor};
+  background-color: ${colors.lightBackground};
   height: 100%;
 `
 const FlatNotifs = styled.FlatList``

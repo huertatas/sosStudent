@@ -19,7 +19,7 @@ export default function Settings({ navigation }) {
         {!themeColor && (
           <Ionicons
             name={'moon-outline'}
-            color={colors.darkBackground}
+            color={colors.lightTextColor}
             size={30}
             onPress={handleChangeTheme}
           />
@@ -27,7 +27,7 @@ export default function Settings({ navigation }) {
         {themeColor && (
           <Ionicons
             name={'sunny-outline'}
-            color={colors.darkBackground}
+            color={colors.lightTextColor}
             size={30}
             onPress={handleChangeTheme}
           />
@@ -37,7 +37,7 @@ export default function Settings({ navigation }) {
       <ButtonTouch onPress={() => navigation.navigate('Settings')}>
         <Ionicons
           name={'cog-outline'}
-          color={colors.darkBackground}
+          color={colors.lightTextColor}
           size={30}
         />
       </ButtonTouch>
@@ -49,12 +49,14 @@ const MainView = styled.View`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
+  background: ${colors.lightBackground};
+  height: 100%;
 `
 const Title = styled.Text`
   margin-top: 10px;
   font-size: 25px;
   font-weight: bold;
-  color:${colors.darkBackground}
+  color:${colors.lightTextColor}
   padding-left: 10px;
   text-align: center;
   padding-bottom:20px;

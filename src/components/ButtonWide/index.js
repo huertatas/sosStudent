@@ -23,6 +23,6 @@ const ButtonWideStyled = styled.TouchableOpacity`
 `
 
 const TextButtonWide = styled.Text`
-  color: ${colors.darkTextColor};
+  color: ${colors.lightTextColor};
   font-size: 20px;
 `

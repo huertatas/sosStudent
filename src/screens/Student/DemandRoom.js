@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-import { SafeAreaView } from 'react-native'
 import styled from 'styled-components'
 import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
@@ -7,6 +6,7 @@ import SubmitButton from '../../components/ButtonWide'
 import { useDispatch, useSelector } from 'react-redux'
 import { createNotif } from '../../actions/notif'
 import Header from '../../components/Header'
+import { colors } from '../../helpers/colors'
 
 const DemandRoom = ({ route, navigation }) => {
   const roomId = route.params.roomId
@@ -32,9 +32,9 @@ const DemandRoom = ({ route, navigation }) => {
   }, [input])
 
   return (
-    <SafeAreaView>
+    <SafeView>
+      <Header title='demand room' navigation={navigation} />
       <Container>
-        <Header title='demand room' navigation={navigation} />
         <TextInput
           value={input}
           onChangeValue={setInput}
@@ -44,7 +44,7 @@ const DemandRoom = ({ route, navigation }) => {
         />
         <SubmitButton textButton={'Add to list'} button={createNotifRoom} />
       </Container>
-    </SafeAreaView>
+    </SafeView>
   )
 }
 
@@ -54,6 +54,11 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  background: ${colors.lightBackground};
+`
+
+const SafeView = styled.SafeAreaView`
+  background: ${colors.lightBackground};
 `
 
 export default DemandRoom
