@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
+import { colors } from '../../helpers/colors'
 
 Ionicons.loadFont().then()
 
