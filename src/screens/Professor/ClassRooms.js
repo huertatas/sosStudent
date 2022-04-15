@@ -66,6 +66,9 @@ export default function Home({ navigation }) {
               />
             )
           }}
+          ListEmptyComponent={() => {
+            return <TextEmpty>vide</TextEmpty>
+          }}
           keyExtractor={room => room.id}
         />
         <ButtonView>
@@ -86,6 +89,13 @@ const SafeView = styled.SafeAreaView`
 `
 const Views = styled.View`
   height: 100%;
+`
+
+const TextEmpty = styled.Text`
+  color: ${colors.lightTextColor};
+  width: 100%;
+  font-size: 25px;
+  text-align: center;
 `
 
 const FlatRooms = styled.FlatList``

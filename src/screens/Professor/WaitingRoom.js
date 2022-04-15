@@ -59,6 +59,9 @@ export default function StudentWaitingRoom({ route, navigation }) {
             />
           )
         }}
+        ListEmptyComponent={() => {
+          return <TextEmpty>vide</TextEmpty>
+        }}
         keyExtractor={room => room.id}
       />
     </SafeView>
@@ -70,3 +73,10 @@ const SafeView = styled.SafeAreaView`
   height: 100%;
 `
 const FlatNotifs = styled.FlatList``
+
+const TextEmpty = styled.Text`
+  color: ${colors.lightTextColor};
+  width: 100%;
+  font-size: 25px;
+  text-align: center;
+`
