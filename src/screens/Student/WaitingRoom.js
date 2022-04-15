@@ -9,13 +9,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
-import { colors } from '../../helpers/colors'
 
 Ionicons.loadFont().then()
+
+let colors = {}
 
 export default function StudentWaitingRoom({ route, navigation }) {
   const roomId = route.params.roomId
   const room = useSelector(state => state.rooms.room)
+  colors = useSelector(state => state.colors.colorTheme)
 
   const dispatch = useDispatch()
 

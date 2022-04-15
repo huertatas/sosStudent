@@ -4,10 +4,14 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
-import { colors } from '../../helpers/colors'
 
 Ionicons.loadFont().then()
+
+let colors = {}
+
 export default function PersonCard({ title }) {
+  colors = useSelector(state => state.colors.colorTheme)
+
   return (
     <SafeAreaView>
       <View>
@@ -31,7 +35,7 @@ const Title = styled.Text`
 const Card = styled.TouchableOpacity`
   height: 40px;
   width: 350px;
-  background-color: ${colors.lightBackground};
+  background-color: ${colors.backgroundColor};
   margin-left: 20px;
 `
 const SubCard = styled.View`

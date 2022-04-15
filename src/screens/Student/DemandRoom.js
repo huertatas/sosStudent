@@ -6,20 +6,15 @@ import SubmitButton from '../../components/ButtonWide'
 import { useDispatch, useSelector } from 'react-redux'
 import { createNotif } from '../../actions/notif'
 import Header from '../../components/Header'
-import { colors } from '../../helpers/colors'
+
+let colors = {}
 
 const DemandRoom = ({ route, navigation }) => {
   const roomId = route.params.roomId
   const dispatch = useDispatch()
+  colors = useSelector(state => state.colors.colorTheme)
   const nameUser = useSelector(state => state.login.userInfo.custom_role)
-  console.log(
-    '🚀 ~ file: DemandRoom.js ~ line 14 ~ DemandRoom ~ userInfo',
-    nameUser
-  )
-  console.log(
-    '🚀 ~ file: DemandRoom.js ~ line 10 ~ DemandRoom ~ roomId',
-    roomId
-  )
+
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
 
@@ -54,11 +49,11 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
 `
 
 const SafeView = styled.SafeAreaView`
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
 `
 
 export default DemandRoom

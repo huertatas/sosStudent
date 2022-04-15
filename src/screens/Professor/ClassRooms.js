@@ -11,10 +11,12 @@ import { displayNotifeeQuitApp } from '../../actions/notifee'
 import Header from '../../components/Header'
 import { AppState } from 'react-native'
 import notifee from '@notifee/react-native'
-import { colors } from '../../helpers/colors'
+
+let colors = {}
 
 export default function Home({ navigation }) {
   const appState = useRef(AppState.currentState)
+  colors = useSelector(state => state.colors.colorTheme)
   const [appStateVisible, setAppStateVisible] = useState(appState.current)
 
   const rooms = useSelector(state => state.rooms)

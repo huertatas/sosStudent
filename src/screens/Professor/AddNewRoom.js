@@ -4,11 +4,14 @@ import Title from '../../components/Title'
 import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
 import { createRoom } from '../../actions/room'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Header from '../../components/Header'
-import { colors } from '../../helpers/colors'
+
+let colors = {}
 
 const AddNewRoom = ({ navigation }) => {
+  colors = useSelector(state => state.colors.colorTheme)
+
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
   const dispatch = useDispatch()
@@ -44,11 +47,11 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
 `
 
 const SafeView = styled.SafeAreaView`
-  background: ${colors.lightBackground};
+  background: ${colors.backgroundColor};
 `
 
 export default AddNewRoom

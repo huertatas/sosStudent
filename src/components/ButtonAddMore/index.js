@@ -2,9 +2,13 @@ import React from 'react'
 import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
-import { colors } from '../../helpers/colors'
+import { useSelector } from 'react-redux'
+
+let colors = {}
 
 export default function ButtonAdd({ textButton, button }) {
+  colors = useSelector(state => state.colors.colorTheme)
+
   return (
     <ButtonAddStyled onPress={() => button()}>
       <Ionicons name={'add-outline'} size={30} color='white' />
@@ -21,5 +25,5 @@ const ButtonAddStyled = styled.TouchableOpacity`
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: ${colors.darkBackground};
+  background-color: ${colors.altColor};
 `
