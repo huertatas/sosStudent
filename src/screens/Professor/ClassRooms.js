@@ -8,7 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
 import { displayNotifeeQuitApp } from '../../actions/notifee'
-import Header from "../../components/Header"
+import Header from '../../components/Header'
 import { AppState } from 'react-native'
 import notifee from '@notifee/react-native'
 
@@ -55,8 +55,7 @@ export default function Home({ navigation }) {
   return (
     <SafeView>
       <Views>
-        {/* <Title title='ClassRooms' /> */}
-        <Header title='ClassRooms'/>
+        <Header title='ClassRooms' navigation={navigation} />
         <FlatRooms
           data={rooms.rooms}
           renderItem={({ item }) => {
@@ -83,10 +82,10 @@ const ButtonView = styled.TouchableOpacity`
   right: 40px;
 `
 const SafeView = styled.SafeAreaView`
-background-color:#4CA6F9
+  background-color: #4ca6f9;
 `
 const Views = styled.View`
-height:100%
+  height: 100%;
 `
 
 const FlatRooms = styled.FlatList``

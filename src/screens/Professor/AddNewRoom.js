@@ -6,13 +6,14 @@ import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
 import { createRoom } from '../../actions/room'
 import { useDispatch } from 'react-redux'
+import Header from '../../components/Header'
 
-const AddNewRoom = () => {
+const AddNewRoom = ({ navigation }) => {
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
   const dispatch = useDispatch()
 
-  handleCreateNewRoom = () => {
+  const handleCreateNewRoom = () => {
     dispatch(createRoom(input))
   }
 
@@ -23,6 +24,7 @@ const AddNewRoom = () => {
 
   return (
     <SafeAreaView>
+      <Header title='ClassRooms' navigation={navigation} />
       <Container>
         <Title title={'Add a new class'} />
         <TextInput

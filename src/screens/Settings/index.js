@@ -1,25 +1,43 @@
 import styled from 'styled-components'
 import { incrementCounter, decrementCounter } from '../../actions/counter'
-import React from 'react'
+import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { colors } from '../../helpers/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-export default function Header({ title, navigation }) {
+export default function Settings({ navigation }) {
+  const [themeColor, setThemeColor] = useState(false)
+
+  const handleChangeTheme = () => {
+    setThemeColor(!themeColor)
+  }
+
   return (
     <MainView>
+      <Title>Thème couleur</Title>
       <ButtonTouch>
-        <Ionicons
-          name={'home-outline'}
-          color={colors.lightTextColor}
-          size={30}
-        />
+        {!themeColor && (
+          <Ionicons
+            name={'moon-outline'}
+            color={colors.darkBackground}
+            size={30}
+            onPress={handleChangeTheme}
+          />
+        )}
+        {themeColor && (
+          <Ionicons
+            name={'sunny-outline'}
+            color={colors.darkBackground}
+            size={30}
+            onPress={handleChangeTheme}
+          />
+        )}
       </ButtonTouch>
-      <Title>{title}</Title>
+      <Title>Changer de langue</Title>
       <ButtonTouch onPress={() => navigation.navigate('Settings')}>
         <Ionicons
           name={'cog-outline'}
-          color={colors.lightTextColor}
+          color={colors.darkBackground}
           size={30}
         />
       </ButtonTouch>
@@ -30,13 +48,13 @@ export default function Header({ title, navigation }) {
 const MainView = styled.View`
   justify-content: space-around;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
 `
 const Title = styled.Text`
   margin-top: 10px;
   font-size: 25px;
   font-weight: bold;
-  color:${colors.lightTextColor}
+  color:${colors.darkBackground}
   padding-left: 10px;
   text-align: center;
   padding-bottom:20px;

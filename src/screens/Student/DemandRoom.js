@@ -6,8 +6,9 @@ import TextInput from '../../components/TextInput'
 import SubmitButton from '../../components/ButtonWide'
 import { useDispatch, useSelector } from 'react-redux'
 import { createNotif } from '../../actions/notif'
+import Header from '../../components/Header'
 
-const DemandRoom = ({ route }) => {
+const DemandRoom = ({ route, navigation }) => {
   const roomId = route.params.roomId
   const dispatch = useDispatch()
   const nameUser = useSelector(state => state.login.userInfo.custom_role)
@@ -33,7 +34,7 @@ const DemandRoom = ({ route }) => {
   return (
     <SafeAreaView>
       <Container>
-        <Title title={'Add a new demand '} />
+        <Header title='demand room' navigation={navigation} />
         <TextInput
           value={input}
           onChangeValue={setInput}

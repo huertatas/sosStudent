@@ -22,7 +22,7 @@ export default function Cards({ title, message, button, check }) {
         <TitleCard>
         <SubTitleView>
         <Title>Nom de l'élève : {title}</Title> 
-        <IconView><Ionicons name={'chevron-down-outline'} color={colors.lightTextColor} size={30} /></IconView>
+        <IconView><Ionicons name={'chevron-down-outline'} color={colors.darkTextColor} size={30} /></IconView>
         </SubTitleView>
           {check && <ButtonCheck button={button} />}
         </TitleCard>
@@ -41,7 +41,7 @@ export default function Cards({ title, message, button, check }) {
 const Card = styled.TouchableOpacity`
   margin-top: 10px;
   height: 60px;
-  background-color: ${colors.lightBackground};
+  background-color: ${colors.lightTextColor};
   width: 350px;
   margin-left: 20px;
   justify-content: center;
@@ -65,7 +65,7 @@ const TitleCard = styled.View`
 `
 const DescriptionCard = styled.View`
   height: 100px;
-  background-color: ${colors.lightBackground};
+  background-color: ${colors.lightTextColor};
   width: 350px;
   margin-left: 20px;
   border-bottom-right-radius: 10px;

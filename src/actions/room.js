@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { showMessage } from 'react-native-flash-message'
 
 export const DISPLAY_ROOMS = 'DISPLAY_ROOMS'
 export const DISPLAY_ROOM_BY_ID = 'DISPLAY_ROOM_BY_ID'
@@ -23,6 +24,10 @@ export const getRooms = () => dispatch => {
     })
     .catch(error => {
       console.log(error)
+      showMessage({
+        message: 'Erreur réseau',
+        type: 'danger'
+      })
     })
 }
 
@@ -36,6 +41,10 @@ export const getRoomById = roomId => dispatch => {
     })
     .catch(error => {
       console.log(error)
+      showMessage({
+        message: 'Erreur réseau',
+        type: 'danger'
+      })
     })
 }
 
@@ -51,8 +60,16 @@ export const createRoom = nameRoom => dispatch => {
   })
     .then(response => {
       console.log(response)
+      showMessage({
+        message: 'Salle de classe créée',
+        type: 'success'
+      })
     })
     .catch(error => {
       console.log(error)
+      showMessage({
+        message: 'Erreur réseau',
+        type: 'danger'
+      })
     })
 }

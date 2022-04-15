@@ -1,4 +1,3 @@
-import { SafeAreaView } from 'react-native'
 import React, { useState, useEffect } from 'react'
 import Titles from '../../components/Title'
 import styled from 'styled-components'
@@ -10,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { displayNotifeeNewNotifStudent } from '../../actions/notifee'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
+import { colors } from '../../helpers/colors'
+import Header from '../../components/Header'
 
 Ionicons.loadFont().then()
 
@@ -39,20 +40,14 @@ export default function StudentWaitingRoom({ route, navigation }) {
 
   useEffect(() => {
     if (notifee) {
-      console.log('passe ici')
       dispatch(displayNotifeeNewNotifStudent())
     }
   }, [notifee])
 
   return (
     <SafeView>
+      <Header title='Waiting room' navigation={navigation}></Header>
       <FlatNotifs
-        LisHeaderComponent={
-          <>
-            <Titles title={room.attributes?.Name} />
-            <Subtitle title='Waiting list' />
-          </>
-        }
         data={room.attributes?.notifs.data}
         renderItem={({ item }) => {
           return (
@@ -65,23 +60,13 @@ export default function StudentWaitingRoom({ route, navigation }) {
           )
         }}
         keyExtractor={room => room.id}
-        ListFooterComponent={
-          <ButtonView>
-            <AddButton button={handleNavigateToCreateNotif} />
-          </ButtonView>
-        }
       />
     </SafeView>
   )
 }
 
-const ButtonView = styled.TouchableOpacity`
-  position: absolute;
-  bottom: 10px;
-  right: 40px;
-`
 const SafeView = styled.SafeAreaView`
-background-color:#4CA6F9;
-height:100%
+  background-color: ${colors.lightTextColor};
+  height: 100%;
 `
 const FlatNotifs = styled.FlatList``

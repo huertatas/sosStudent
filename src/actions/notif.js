@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { showMessage } from 'react-native-flash-message'
 
 export const DISPLAY_NOTIFS = 'DISPLAY_NOTIFS'
 
@@ -17,6 +18,10 @@ export const getNotifs = () => dispatch => {
     })
     .catch(error => {
       console.log(error)
+      showMessage({
+        message: 'Erreur réseau',
+        type: 'danger'
+      })
     })
 }
 
@@ -27,9 +32,17 @@ export const deleteNotifs = idNotif => dispatch => {
   })
     .then(response => {
       console.log('🚀 deleting notif ===>', response)
+      showMessage({
+        message: 'Elève secouru',
+        type: 'success'
+      })
     })
     .catch(error => {
       console.log(error)
+      showMessage({
+        message: 'Erreur réseau',
+        type: 'danger'
+      })
     })
 }
 
@@ -47,8 +60,16 @@ export const createNotif = (idRoom, helpMessage) => dispatch => {
   })
     .then(response => {
       console.log(response)
+      showMessage({
+        message: "Demande d'aide envoyé",
+        type: 'success'
+      })
     })
     .catch(error => {
       console.log(error)
+      showMessage({
+        message: 'Erreur réseau',
+        type: 'danger'
+      })
     })
 }
