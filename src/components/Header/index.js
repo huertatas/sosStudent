@@ -6,9 +6,19 @@ import { colors } from '../../helpers/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 export default function Header({ title, navigation }) {
+  const infoUser = useSelector(state => state.login.userInfo)
+
+  const handleNavigateToHome = () => {
+    if (infoUser.custom_role === 'student') {
+      navigation.navigate('StudentJoinRoom')
+    } else {
+      navigation.navigate('ProfessorClassRoom')
+    }
+  }
+
   return (
     <MainView>
-      <ButtonTouch>
+      <ButtonTouch onPress={handleNavigateToHome}>
         <Ionicons
           name={'home-outline'}
           color={colors.lightTextColor}
