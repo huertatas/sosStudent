@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
-
-let colors = {}
+import { colors } from '../../helpers/colors'
 
 const TextInput = ({
   value,
@@ -13,8 +11,6 @@ const TextInput = ({
   autoCapitalize,
   numberOfLines = 1
 }) => {
-  colors = useSelector(state => state.colors.colorTheme)
-
   return (
     <Input
       onChangeText={onChangeValue}
@@ -32,10 +28,10 @@ const Input = styled.TextInput`
   width: 80%;
   margin: 16px auto;
   padding-left: 10px;
-  height: 50px;
+  height:50px;
   color: black;
-  background-color: 'white';
-  border: 2px solid #1e276f;
+  background-color: ${colors.lightBackground};
+  border: 2px solid #1E276F;
   border-radius: 30px;
   font-size: 20px;
 `

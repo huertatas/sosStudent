@@ -2,15 +2,12 @@ import styled from 'styled-components'
 import { incrementCounter, decrementCounter } from '../../actions/counter'
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { colors } from '../../helpers/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { logout } from '../../actions/login'
 
-let colors = {}
-
 export default function Settings({ navigation }) {
   const dispatch = useDispatch()
-  colors = useSelector(state => state.colors.colorTheme)
-  console.log('🚀 ~ file: index.js ~ line 13 ~ Settings ~ colors', colors)
   const [themeColor, setThemeColor] = useState(false)
 
   const handleChangeTheme = () => {
@@ -63,23 +60,21 @@ export default function Settings({ navigation }) {
   )
 }
 
-console.log("stp wheshhhh", colors.backgroundColor)
-
 const MainView = styled.View`
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  background: ${colors.backgroundColor ? colors.backgroundColor : 'white'};
+  background: ${colors.lightBackground};
   height: 100%;
 `
 const Title = styled.Text`
-margin-top: 10px;
-font-size: 25px;
-font-weight: bold;
-color:${colors.lightTextColor}
-padding-left: 10px;
-text-align: center;
-padding-bottom:20px;
-align-items:center;
+  margin-top: 10px;
+  font-size: 25px;
+  font-weight: bold;
+  color:${colors.lightTextColor}
+  padding-left: 10px;
+  text-align: center;
+  padding-bottom:20px;
+  align-items:center;
 `
 const ButtonTouch = styled.TouchableOpacity``

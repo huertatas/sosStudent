@@ -2,12 +2,10 @@ import styled from 'styled-components'
 import { incrementCounter, decrementCounter } from '../../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { colors } from '../../helpers/colors'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
-let colors = {}
-
 export default function Header({ title, navigation }) {
-  colors = useSelector(state => state.colors.colorTheme)
   const infoUser = useSelector(state => state.login.userInfo)
 
   const handleNavigateToHome = () => {

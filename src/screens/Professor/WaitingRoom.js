@@ -9,14 +9,12 @@ import { useDispatch, useSelector } from 'react-redux'
 import { displayNotifeeNewNotifStudent } from '../../actions/notifee'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
+import { colors } from '../../helpers/colors'
 import Header from '../../components/Header'
 
 Ionicons.loadFont().then()
 
-let colors = {}
-
 export default function StudentWaitingRoom({ route, navigation }) {
-  colors = useSelector(state => state.colors.colorTheme)
   const roomId = route.params.roomId
   const room = useSelector(state => state.rooms.room)
   const notifee = useSelector(state => state.rooms.infoForNotifee)
@@ -71,7 +69,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
 }
 
 const SafeView = styled.SafeAreaView`
-  background-color: ${colors.backgroundColor};
+  background-color: ${colors.lightBackground};
   height: 100%;
 `
 const FlatNotifs = styled.FlatList``

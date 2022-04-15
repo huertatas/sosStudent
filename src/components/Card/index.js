@@ -11,14 +11,11 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonCheck from '../ButtonCheck'
+import { colors } from '../../helpers/colors'
 Ionicons.loadFont().then()
 
-let colors = {}
-
 export default function Cards({ title, message, button, check }) {
-  colors = useSelector(state => state.colors.colorTheme)
   const [isActive, setIsActive] = useState(false)
-
   return (
     <SafeAreaView>
       <Card onPress={() => setIsActive(!isActive)}>

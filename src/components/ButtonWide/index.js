@@ -1,12 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useSelector } from 'react-redux'
-
-let colors = {}
+import { colors } from '../../helpers/colors'
 
 export default function ButtonWide({ textButton, button }) {
-  colors = useSelector(state => state.colors.colorTheme)
-
   return (
     <ButtonWideStyled onPress={() => button()}>
       <TextButtonWide>{textButton}</TextButtonWide>

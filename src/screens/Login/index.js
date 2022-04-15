@@ -8,13 +8,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/login'
 import { useFocusEffect } from '@react-navigation/native'
 import logo from '../../assets/logo.png'
-
-let colors = {}
-
 const Login = ({ navigation }) => {
   const loginInfo = useSelector(state => state.login.userInfo)
   const dispatch = useDispatch()
-  colors = useSelector(state => state.colors.colorTheme)
 
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -67,9 +63,8 @@ const Login = ({ navigation }) => {
 }
 
 const Container = styled.View`
-    background-color:${colors.altColor}
-    height:100%
-  `
+background-color:white
+height:100%`
 
 const ButtonView = styled.View`
   justify-content: center;
