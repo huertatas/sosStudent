@@ -6,6 +6,7 @@ import FlashMessage from 'react-native-flash-message'
 import { Provider } from 'react-redux'
 import { store } from './src/config/store'
 import { useSelector } from 'react-redux'
+import './i18n';
 
 import notifee, { AuthorizationStatus } from '@notifee/react-native'
 

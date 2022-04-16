@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
+import { useSelector } from 'react-redux'
 Ionicons.loadFont().then()
 
 export default function ButtonAdd({ textButton, button }) {
+  const theme = useSelector(state => state.colors.colorTheme)
+
   return (
     <ButtonAddStyled onPress={() => button()}>
-      <Ionicons name={'add-outline'} size={30} color='white' />
+      <Ionicons name={'add-outline'} size={30} color={theme.lightTextColor} />
     </ButtonAddStyled>
   )
 }

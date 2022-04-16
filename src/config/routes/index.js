@@ -11,17 +11,25 @@ import StudentWaitingRoom from '../../screens/Student/WaitingRoom'
 import Settings from '../../screens/Settings'
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const Stack = createNativeStackNavigator()
 
 const Routes = () => {
+  const { t } = useTranslation()
   const theme = useSelector(state => state.colors.colorTheme)
 
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: true }}>
-          <Stack.Screen name='Login' component={Login} />
+          <Stack.Screen
+            name='Login'
+            options={{
+              headerShown: false
+            }}
+            component={Login}
+          />
           <Stack.Screen
             name='ProfessorClassRoom'
             component={ProfessorClassRoom}
@@ -30,16 +38,15 @@ const Routes = () => {
           <Stack.Screen
             name='ProfessorAddNewRoom'
             component={ProfessorAddNewRoom}
+            options={{
+              headerShown: false
+            }}
           />
           <Stack.Screen
             name='ProfessorWaitingRoom'
             component={ProfessorWaitingRoom}
             options={{
-              headerBackTitle: '',
-              headerTintColor: 'black',
-              headerTitleStyle: {
-                color: 'white'
-              }
+              headerShown: false
             }}
           />
           <Stack.Screen
@@ -50,12 +57,32 @@ const Routes = () => {
           <Stack.Screen
             name='StudentDemandProfessor'
             component={StudentDemandProfessor}
+            options={{
+              headerShown: false
+            }}
           />
           <Stack.Screen
             name='StudentWaitingRoom'
             component={StudentWaitingRoom}
+            options={{
+              headerShown: false
+            }}
           />
-          <Stack.Screen name='Settings' component={Settings} />
+          <Stack.Screen
+            name='Settings'
+            options={{
+              title: t('Settings'),
+              headerStyle: {
+                backgroundColor: theme.backgroundColor
+              },
+              headerTitleStyle: {
+                fontWeight: 'bold',
+                color: theme.lightTextColor
+              },
+              headerTintColor: theme.lightTextColor
+            }}
+            component={Settings}
+          />
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>

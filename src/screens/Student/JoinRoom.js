@@ -8,8 +8,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
 import Header from '../../components/Header'
+import { useTranslation } from 'react-i18next'
 
 export default function JoinRoom({ navigation }) {
+  const { t } = useTranslation()
+
   const rooms = useSelector(state => state.rooms)
   const notifs = useSelector(state => state.notifs)
 
@@ -28,7 +31,7 @@ export default function JoinRoom({ navigation }) {
   return (
     <SafeView>
       <Views>
-        <Header title='Join room' navigation={navigation} />
+        <Header title={t('Classrooms')} navigation={navigation} />
         <FlatRooms
           data={rooms.rooms}
           renderItem={({ item }) => {
@@ -40,7 +43,7 @@ export default function JoinRoom({ navigation }) {
             )
           }}
           ListEmptyComponent={() => {
-            return <TextEmpty>vide</TextEmpty>
+            return <TextEmpty>{t('Empty')}</TextEmpty>
           }}
           keyExtractor={room => room.id}
         />

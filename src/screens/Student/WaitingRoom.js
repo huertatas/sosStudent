@@ -9,10 +9,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
+import { useTranslation } from 'react-i18next'
 
 Ionicons.loadFont().then()
 
 export default function StudentWaitingRoom({ route, navigation }) {
+  const { t } = useTranslation()
+
   const roomId = route.params.roomId
   const room = useSelector(state => state.rooms.room)
 
@@ -38,7 +41,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
   return (
     <SafeView>
       <Views>
-        <Header title='Waiting room' navigation={navigation} />
+        <Header title={t('WaitingRoom')} navigation={navigation} />
         <FlatNotifs
           data={room.attributes?.notifs.data}
           renderItem={({ item }) => {
@@ -52,7 +55,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
             )
           }}
           ListEmptyComponent={() => {
-            return <TextEmpty>vide</TextEmpty>
+            return <TextEmpty>{t('Empty')}</TextEmpty>
           }}
           keyExtractor={room => room.id}
         />

@@ -16,7 +16,7 @@ export default function Titles({ title }) {
 
 const Title = styled.Text`
   margin-top: 5px;
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
   color:${props => props.theme.darkTextColor}
   padding-left: 10px;

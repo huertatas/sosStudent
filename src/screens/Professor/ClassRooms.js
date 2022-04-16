@@ -11,8 +11,11 @@ import { displayNotifeeQuitApp } from '../../actions/notifee'
 import Header from '../../components/Header'
 import { AppState } from 'react-native'
 import notifee from '@notifee/react-native'
+import { useTranslation } from 'react-i18next'
 
 export default function Home({ navigation }) {
+  const { t } = useTranslation()
+
   const appState = useRef(AppState.currentState)
   const [appStateVisible, setAppStateVisible] = useState(appState.current)
 
@@ -55,7 +58,7 @@ export default function Home({ navigation }) {
   return (
     <SafeView>
       <Views>
-        <Header title='ClassRooms' navigation={navigation} />
+        <Header title={t('Classrooms')} navigation={navigation} />
         <FlatRooms
           data={rooms.rooms}
           renderItem={({ item }) => {
@@ -67,7 +70,7 @@ export default function Home({ navigation }) {
             )
           }}
           ListEmptyComponent={() => {
-            return <TextEmpty>vide</TextEmpty>
+            return <TextEmpty>{t('Empty')}</TextEmpty>
           }}
           keyExtractor={room => room.id}
         />

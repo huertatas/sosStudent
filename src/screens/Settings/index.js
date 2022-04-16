@@ -5,11 +5,15 @@ import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import { logout } from '../../actions/login'
 import { displayDarkTheme, displayLightTheme } from '../../actions/colors'
+import { useTranslation } from 'react-i18next'
 
 export default function Settings({ navigation }) {
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
   const themeMode = useSelector(state => state.colors.mode)
+  const theme = useSelector(state => state.colors.colorTheme)
   const [themeColor, setThemeColor] = useState(false)
+  const [themeLanguage, setThemeLanguage] = useState(false)
 
   const handleChangeTheme = () => {
     setThemeColor(!themeColor)
@@ -20,7 +24,14 @@ export default function Settings({ navigation }) {
     }
   }
 
-  useEffect(() => {})
+  const handleChangeLanguage = () => {
+    setThemeLanguage(!themeLanguage)
+    if (themeLanguage) {
+      i18n.changeLanguage('fr')
+    } else {
+      i18n.changeLanguage('en')
+    }
+  }
 
   const handleLogout = () => {
     dispatch(logout())
@@ -31,20 +42,27 @@ export default function Settings({ navigation }) {
     if (themeMode !== 'light') {
       setThemeColor(true)
     }
+    if (i18n.language === 'fr') {
+      setThemeColor(true)
+    }
   }, [])
 
   return (
     <MainView>
-      <Title>Déconnexion</Title>
+      <Title>{t('Logout')}</Title>
       <ButtonTouch onPress={handleLogout}>
-        <Ionicons name={'log-out-outline'} color={'white'} size={30} />
+        <Ionicons
+          name={'log-out-outline'}
+          color={theme.lightTextColor}
+          size={30}
+        />
       </ButtonTouch>
-      <Title>Thème couleur</Title>
+      <Title>{t('ColorTheme')}</Title>
       <ButtonTouch>
         {!themeColor && (
           <Ionicons
             name={'moon-outline'}
-            color={'white'}
+            color={theme.lightTextColor}
             size={30}
             onPress={handleChangeTheme}
           />
@@ -52,15 +70,19 @@ export default function Settings({ navigation }) {
         {themeColor && (
           <Ionicons
             name={'sunny-outline'}
-            color={'white'}
+            color={theme.lightTextColor}
             size={30}
             onPress={handleChangeTheme}
           />
         )}
       </ButtonTouch>
-      <Title>Changer de langue</Title>
-      <ButtonTouch onPress={() => navigation.navigate('Settings')}>
-        <Ionicons name={'language-outline'} color={'white'} size={30} />
+      <Title>{t('LangTheme')}</Title>
+      <ButtonTouch onPress={handleChangeLanguage}>
+        <Ionicons
+          name={'language-outline'}
+          color={theme.lightTextColor}
+          size={30}
+        />
       </ButtonTouch>
     </MainView>
   )

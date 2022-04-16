@@ -10,10 +10,13 @@ import { displayNotifeeNewNotifStudent } from '../../actions/notifee'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
+import { useTranslation } from 'react-i18next'
 
 Ionicons.loadFont().then()
 
 export default function StudentWaitingRoom({ route, navigation }) {
+  const { t } = useTranslation()
+
   const roomId = route.params.roomId
   const room = useSelector(state => state.rooms.room)
   const notifee = useSelector(state => state.rooms.infoForNotifee)
@@ -45,7 +48,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
 
   return (
     <SafeView>
-      <Header title='Waiting room' navigation={navigation}></Header>
+      <Header title={t('WaitingRoom')} navigation={navigation}></Header>
       <FlatNotifs
         data={room.attributes?.notifs.data}
         renderItem={({ item }) => {
@@ -59,7 +62,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
           )
         }}
         ListEmptyComponent={() => {
-          return <TextEmpty>vide</TextEmpty>
+          return <TextEmpty>{t('Empty')}</TextEmpty>
         }}
         keyExtractor={room => room.id}
       />

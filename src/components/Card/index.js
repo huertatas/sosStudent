@@ -11,21 +11,28 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonCheck from '../ButtonCheck'
+import { useTranslation } from 'react-i18next'
 
 Ionicons.loadFont().then()
 
 export default function Cards({ title, message, button, check }) {
+  const { t } = useTranslation()
+
+  const theme = useSelector(state => state.colors.colorTheme)
+
   const [isActive, setIsActive] = useState(false)
   return (
     <SafeAreaView>
       <Card onPress={() => setIsActive(!isActive)}>
         <TitleCard>
           <SubTitleView>
-            <Title>Nom de l'élève : {title}</Title>
+            <Title>
+              {t('StudentName')} : {title}
+            </Title>
             <IconView>
               <Ionicons
                 name={'chevron-down-outline'}
-                color={'black'}
+                color={theme.darkTextColor}
                 size={30}
               />
             </IconView>

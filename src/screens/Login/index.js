@@ -8,8 +8,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/login'
 import { useFocusEffect } from '@react-navigation/native'
 import logo from '../../assets/logo.png'
+import { useTranslation } from 'react-i18next'
 
 const Login = ({ navigation }) => {
+  const { t } = useTranslation()
+
   const loginInfo = useSelector(state => state.login.userInfo)
   const dispatch = useDispatch()
 
@@ -39,7 +42,7 @@ const Login = ({ navigation }) => {
   return (
     <Container>
       <Image uri={logo} />
-      <Title title='Welcome Back 👋' />
+      <Title title={t('Welcome Back 👋')} />
       <Input
         placeholder='Email...'
         autoComplete={true}
@@ -56,7 +59,7 @@ const Login = ({ navigation }) => {
       />
       <ButtonView>
         <Submit title='Login' onPress={handleSubmit}>
-          <ButtonText>Login</ButtonText>
+          <ButtonText>{t('Login')}</ButtonText>
         </Submit>
       </ButtonView>
     </Container>

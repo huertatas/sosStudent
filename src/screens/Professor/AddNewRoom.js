@@ -6,8 +6,11 @@ import SubmitButton from '../../components/ButtonWide'
 import { createRoom } from '../../actions/room'
 import { useDispatch } from 'react-redux'
 import Header from '../../components/Header'
+import { useTranslation } from 'react-i18next'
 
 const AddNewRoom = ({ navigation }) => {
+  const { t } = useTranslation()
+
   const [input, setInput] = useState('')
   const handleInputChange = newValue => setInput(newValue)
   const dispatch = useDispatch()
@@ -16,22 +19,16 @@ const AddNewRoom = ({ navigation }) => {
     dispatch(createRoom(input))
   }
 
-  useEffect(() => {
-    if (input)
-      console.log(`🚧👷 [New room] New value for className  : ${input}`)
-  }, [input])
-
   return (
     <SafeView>
-      <Header title='ClassRooms' navigation={navigation} />
+      <Header title={t('AddNewRoom')} navigation={navigation} />
       <Container>
-        <Title title={'Add a new class'} />
         <TextInput
           value={input}
           onChangeValue={setInput}
-          placeholder={'Class name'}
+          placeholder={t('ClassName')}
         />
-        <SubmitButton button={handleCreateNewRoom} textButton={'Create'} />
+        <SubmitButton button={handleCreateNewRoom} textButton={t('Add')} />
       </Container>
     </SafeView>
   )

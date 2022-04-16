@@ -30,7 +30,7 @@ const Input = styled.TextInput`
   height: 50px;
   color: ${props => props.theme.darkTextColor};
   background-color: ${props => props.theme.lightTextColor};
-  border: 2px solid #1e276f;
+  border: 2px solid ${props => props.theme.darkTextColor};
   border-radius: 30px;
   font-size: 20px;
 `
