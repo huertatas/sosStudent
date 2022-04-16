@@ -35,7 +35,6 @@ export const login =
         }
       })
       .catch(error => {
-        console.log(`🐛🐛🐛 Error in login action:${error}`)
         showMessage({
           message: 'Erreur lors de la connexion',
           type: 'danger'

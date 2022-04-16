@@ -43,7 +43,6 @@ export default function Home({ navigation }) {
     const subscription = AppState.addEventListener('change', nextAppState => {
       appState.current = nextAppState
       setAppStateVisible(appState.current)
-      console.log('AppState', appState.current)
 
       if (appState.current === 'background') {
         dispatch(displayNotifeeQuitApp())

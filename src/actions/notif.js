@@ -17,7 +17,6 @@ export const getNotifs = () => dispatch => {
       dispatch(displayNotifs(response.data.data))
     })
     .catch(error => {
-      console.log(error)
       showMessage({
         message: 'Erreur réseau',
         type: 'danger'
@@ -31,14 +30,12 @@ export const deleteNotifs = idNotif => dispatch => {
     url: `https://mobilebackstrapi.herokuapp.com/api/notifs/${idNotif}`
   })
     .then(response => {
-      console.log('🚀 deleting notif ===>', response)
       showMessage({
         message: 'Elève secouru',
         type: 'success'
       })
     })
     .catch(error => {
-      console.log(error)
       showMessage({
         message: 'Erreur réseau',
         type: 'danger'
@@ -59,14 +56,12 @@ export const createNotif = (idRoom, helpMessage) => dispatch => {
     }
   })
     .then(response => {
-      console.log(response)
       showMessage({
         message: "Demande d'aide envoyé",
         type: 'success'
       })
     })
     .catch(error => {
-      console.log(error)
       showMessage({
         message: 'Erreur réseau',
         type: 'danger'

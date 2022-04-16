@@ -23,7 +23,6 @@ export const getRooms = () => dispatch => {
       dispatch(displayRoom(response.data.data))
     })
     .catch(error => {
-      console.log(error)
       showMessage({
         message: 'Erreur réseau',
         type: 'danger'
@@ -40,7 +39,6 @@ export const getRoomById = roomId => dispatch => {
       dispatch(displayRoomById(response.data.data))
     })
     .catch(error => {
-      console.log(error)
       showMessage({
         message: 'Erreur réseau',
         type: 'danger'
@@ -59,14 +57,12 @@ export const createRoom = nameRoom => dispatch => {
     }
   })
     .then(response => {
-      console.log(response)
       showMessage({
         message: 'Salle de classe créée',
         type: 'success'
       })
     })
     .catch(error => {
-      console.log(error)
       showMessage({
         message: 'Erreur réseau',
         type: 'danger'
