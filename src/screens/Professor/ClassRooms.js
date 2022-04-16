@@ -11,9 +11,6 @@ import { displayNotifeeQuitApp } from '../../actions/notifee'
 import Header from '../../components/Header'
 import { AppState } from 'react-native'
 import notifee from '@notifee/react-native'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 export default function Home({ navigation }) {
   const appState = useRef(AppState.currentState)
@@ -88,14 +85,14 @@ const ButtonView = styled.TouchableOpacity`
   right: 40px;
 `
 const SafeView = styled.SafeAreaView`
-  background-color: #4ca6f9;
+  background-color: ${props => props.theme.backgroundColor};
 `
 const Views = styled.View`
   height: 100%;
 `
 
 const TextEmpty = styled.Text`
-  color: ${colors.lightTextColor};
+  color: ${props => props.theme.lightTextColor};
   width: 100%;
   font-size: 25px;
   text-align: center;

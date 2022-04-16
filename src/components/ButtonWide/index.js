@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { store } from '../../../App'
 
-let colors = store.getState().colors.colorTheme
 
 export default function ButtonWide({ textButton, button }) {
   return (
@@ -14,7 +12,7 @@ export default function ButtonWide({ textButton, button }) {
 
 const ButtonWideStyled = styled.TouchableOpacity`
   width: 80%;
-  background: black;
+  background: ${props => props.theme.darkTextColor};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -25,6 +23,6 @@ const ButtonWideStyled = styled.TouchableOpacity`
 `
 
 const TextButtonWide = styled.Text`
-  color: ${colors.lightTextColor};
+  color: ${props => props.theme.lightTextColor};
   font-size: 20px;
 `

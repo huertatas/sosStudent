@@ -9,9 +9,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 Ionicons.loadFont().then()
 
@@ -73,7 +70,7 @@ const ButtonView = styled.TouchableOpacity`
   right: 40px;
 `
 const SafeView = styled.SafeAreaView`
-  background-color: #4ca6f9;
+  background-color: ${props => props.theme.backgroundColor};
 `
 
 const Views = styled.View`
@@ -81,7 +78,7 @@ const Views = styled.View`
 `
 
 const TextEmpty = styled.Text`
-  color: ${colors.lightTextColor};
+  color: ${props => props.theme.lightTextColor};
   width: 100%;
   font-size: 25px;
   text-align: center;

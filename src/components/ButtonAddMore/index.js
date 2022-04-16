@@ -2,9 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 export default function ButtonAdd({ textButton, button }) {
   return (
@@ -23,5 +20,5 @@ const ButtonAddStyled = styled.TouchableOpacity`
   align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: ${colors.darkTextColor};
+  background-color: ${props => props.theme.darkTextColor};
 `

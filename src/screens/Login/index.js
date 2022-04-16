@@ -8,9 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../actions/login'
 import { useFocusEffect } from '@react-navigation/native'
 import logo from '../../assets/logo.png'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 const Login = ({ navigation }) => {
   const loginInfo = useSelector(state => state.login.userInfo)
@@ -67,7 +64,7 @@ const Login = ({ navigation }) => {
 }
 
 const Container = styled.View`
-  background-color: ${colors.backgroundColor};
+  background-color: ${props => props.theme.lightTextColor};
   height: 100%;
 `
 
@@ -79,7 +76,7 @@ const ButtonView = styled.View`
 const Submit = styled.TouchableOpacity`
   height: 50px;
   width: 300px;
-  background-color: ${colors.altColor};
+  background-color: ${props => props.theme.altColor};
   justify-content: center;
   align-items: center;
   border-radius: 10px;
@@ -88,7 +85,7 @@ const ButtonText = styled.Text`
   align-items: center;
   font-size: 20px;
   font-weight: bold;
-  color: ${colors.lightTextColor};
+  color: ${props => props.theme.lightTextColor};
 `
 
 export default Login

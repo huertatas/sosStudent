@@ -6,9 +6,6 @@ import SubmitButton from '../../components/ButtonWide'
 import { useDispatch, useSelector } from 'react-redux'
 import { createNotif } from '../../actions/notif'
 import Header from '../../components/Header'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 const DemandRoom = ({ route, navigation }) => {
   const roomId = route.params.roomId
@@ -56,11 +53,11 @@ const Container = styled.View`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background: ${colors.backgroundColor};
+  background: ${props => props.theme.backgroundColor};
 `
 
 const SafeView = styled.SafeAreaView`
-  background: ${colors.backgroundColor};
+  background: ${props => props.theme.backgroundColor};
 `
 
 export default DemandRoom

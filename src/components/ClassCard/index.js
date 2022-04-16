@@ -3,9 +3,6 @@ import { SafeAreaView } from 'react-native'
 import { incrementCounter, decrementCounter } from '../actions/counter'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 export default function PersonCard({ title, button }) {
   return (
@@ -28,7 +25,7 @@ const Card = styled.TouchableOpacity`
   height: 70px;
   width: 80%;
   margin-top: 20px;
-  background-color: white;
+  background-color: ${props => props.theme.backgroundColor};
   justify-content: center;
   align-items: center;
   border-radius: 20px;

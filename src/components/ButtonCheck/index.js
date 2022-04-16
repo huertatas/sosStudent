@@ -2,9 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 Ionicons.loadFont().then()
-import { store } from '../../../App'
 
-let colors = store.getState().colors.colorTheme
 
 export default function ButtonCheck({ textButton, button }) {
   return (
@@ -18,7 +16,7 @@ const ButtonCheckStyled = styled.TouchableOpacity`
   width: 30px;
   height: 30px;
   border-radius: ${30 / 2};
-  background: ${colors.secondaryColor};
+  background: ${props => props.theme.secondaryColor};
   display: flex;
   justify-content: center;
   align-items: center;

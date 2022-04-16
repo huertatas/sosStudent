@@ -8,9 +8,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
 import Header from '../../components/Header'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 export default function JoinRoom({ navigation }) {
   const rooms = useSelector(state => state.rooms)
@@ -58,14 +55,14 @@ const ButtonView = styled.TouchableOpacity`
   right: 40px;
 `
 const SafeView = styled.SafeAreaView`
-  background-color: ${colors.backgroundColor};
+  background-color: ${props => props.theme.backgroundColor};
 `
 const Views = styled.View`
   height: 100%;
 `
 
 const TextEmpty = styled.Text`
-  color: ${colors.lightTextColor};
+  color: ${props => props.theme.lightTextColor};
   width: 100%;
   font-size: 25px;
   text-align: center;

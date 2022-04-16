@@ -5,8 +5,7 @@ import styled from 'styled-components'
 import FlashMessage from 'react-native-flash-message'
 import { Provider } from 'react-redux'
 import { store } from './src/config/store'
-
-export { store }
+import { useSelector } from 'react-redux'
 
 import notifee, { AuthorizationStatus } from '@notifee/react-native'
 
@@ -28,6 +27,7 @@ const App = () => {
   useEffect(() => {
     requestUserPermission()
   }, [])
+
   return (
     <Provider store={store}>
       <Routes />

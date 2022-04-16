@@ -10,9 +10,6 @@ import { displayNotifeeNewNotifStudent } from '../../actions/notifee'
 import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 Ionicons.loadFont().then()
 
@@ -71,13 +68,13 @@ export default function StudentWaitingRoom({ route, navigation }) {
 }
 
 const SafeView = styled.SafeAreaView`
-  background-color: ${colors.backgroundColor};
+  background-color: ${props => props.theme.backgroundColor};
   height: 100%;
 `
 const FlatNotifs = styled.FlatList``
 
 const TextEmpty = styled.Text`
-  color: ${colors.lightTextColor};
+  color: ${props => props.theme.lightTextColor};
   width: 100%;
   font-size: 25px;
   text-align: center;

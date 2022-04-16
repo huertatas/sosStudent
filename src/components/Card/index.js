@@ -11,9 +11,6 @@ import { incrementCounter, decrementCounter } from '../actions/counter'
 import { useDispatch, useSelector } from 'react-redux'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 import ButtonCheck from '../ButtonCheck'
-import { store } from '../../../App'
-
-let colors = store.getState().colors.colorTheme
 
 Ionicons.loadFont().then()
 
@@ -28,7 +25,7 @@ export default function Cards({ title, message, button, check }) {
             <IconView>
               <Ionicons
                 name={'chevron-down-outline'}
-                color={colors.darkTextColor}
+                color={'black'}
                 size={30}
               />
             </IconView>
@@ -50,7 +47,7 @@ export default function Cards({ title, message, button, check }) {
 const Card = styled.TouchableOpacity`
   margin-top: 10px;
   height: 60px;
-  background-color: ${colors.lightTextColor};
+  background-color: ${props => props.theme.lightTextColor};
   width: 90%;
   margin-left: 20px;
   justify-content: center;
@@ -75,7 +72,7 @@ const TitleCard = styled.View`
 `
 const DescriptionCard = styled.View`
   height: 100px;
-  background-color: ${colors.lightTextColor};
+  background-color: ${props => props.theme.lightTextColor};
   width: 350px;
   margin-left: 20px;
   border-bottom-right-radius: 10px;
@@ -92,9 +89,9 @@ const Title = styled.Text`
 `
 
 const Description = styled.Text`
-font-size:18px;
-margin-left:20px
-margin-top:2px;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 2px;
 `
 const Title2 = styled.Text`
   font-size: 18px;
