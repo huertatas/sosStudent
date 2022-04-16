@@ -12,15 +12,18 @@ import Settings from '../../screens/Settings'
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
+import Loader from '../../components/Loader'
 
 const Stack = createNativeStackNavigator()
 
 const Routes = () => {
   const { t } = useTranslation()
   const theme = useSelector(state => state.colors.colorTheme)
+  const loading = useSelector(state => state.loader.loading)
 
   return (
     <ThemeProvider theme={theme}>
+      {loading && <Loader />}
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: true }}>
           <Stack.Screen
