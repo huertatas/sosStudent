@@ -25,7 +25,7 @@ const Card = styled.TouchableOpacity`
   height: 70px;
   width: 80%;
   margin-top: 20px;
-  background-color: ${props => props.theme.backgroundColor};
+  background-color: ${props => props.theme.lightTextColor};
   justify-content: center;
   align-items: center;
   border-radius: 20px;
