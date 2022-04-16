@@ -35,16 +35,8 @@ export default function Home({ navigation }) {
   }
 
   useEffect(() => {
-    const subscribeToRooms = setInterval(() => {
-      dispatch(getRooms())
-      dispatch(getNotifs())
-    }, 5000)
     dispatch(getRooms())
     dispatch(getNotifs())
-
-    return function unubscribeToRoom() {
-      clearInterval(subscribeToRooms)
-    }
   }, [])
 
   useEffect(() => {
