@@ -10,6 +10,7 @@ import Card from '../../components/Card'
 import AddButton from '../../components/ButtonAddMore'
 import Header from '../../components/Header'
 import { useTranslation } from 'react-i18next'
+import RefreshButton from '../../components/ButtonRefresh'
 
 Ionicons.loadFont().then()
 
@@ -27,21 +28,19 @@ export default function StudentWaitingRoom({ route, navigation }) {
     })
   }
 
-  useEffect(() => {
-    const subscribeToRoom = setInterval(() => {
-      dispatch(getRoomById(roomId))
-    }, 5000)
+  const handleRefresh = () => {
     dispatch(getRoomById(roomId))
+  }
 
-    return function unubscribeToRoom() {
-      clearInterval(subscribeToRoom)
-    }
+  useEffect(() => {
+    dispatch(getRoomById(roomId))
   }, [])
 
   return (
     <SafeView>
       <Views>
         <Header title={t('WaitingRoom')} navigation={navigation} />
+        <RefreshButton button={handleRefresh} />
         <FlatNotifs
           data={room.attributes?.notifs.data}
           renderItem={({ item }) => {

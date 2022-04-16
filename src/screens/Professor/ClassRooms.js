@@ -12,6 +12,7 @@ import Header from '../../components/Header'
 import { AppState } from 'react-native'
 import notifee from '@notifee/react-native'
 import { useTranslation } from 'react-i18next'
+import ButtonRefresh from '../../components/ButtonRefresh'
 
 export default function Home({ navigation }) {
   const { t } = useTranslation()
@@ -32,6 +33,11 @@ export default function Home({ navigation }) {
 
   const handleNavigateToCreateRoom = () => {
     navigation.navigate('ProfessorAddNewRoom')
+  }
+
+  const handleRefresh = () => {
+    dispatch(getRooms())
+    dispatch(getNotifs())
   }
 
   useEffect(() => {
@@ -58,6 +64,7 @@ export default function Home({ navigation }) {
     <SafeView>
       <Views>
         <Header title={t('Classrooms')} navigation={navigation} />
+        <ButtonRefresh button={handleRefresh} />
         <FlatRooms
           data={rooms.rooms}
           renderItem={({ item }) => {

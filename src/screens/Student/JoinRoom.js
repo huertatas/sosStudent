@@ -9,6 +9,7 @@ import AddButton from '../../components/ButtonAddMore'
 import styled from 'styled-components'
 import Header from '../../components/Header'
 import { useTranslation } from 'react-i18next'
+import ButtonRefresh from '../../components/ButtonRefresh'
 
 export default function JoinRoom({ navigation }) {
   const { t } = useTranslation()
@@ -24,6 +25,11 @@ export default function JoinRoom({ navigation }) {
     })
   }
 
+  const handleRefresh = () => {
+    dispatch(getRooms())
+    dispatch(getNotifs())
+  }
+
   useEffect(() => {
     dispatch(getRooms())
     dispatch(getNotifs())
@@ -32,6 +38,7 @@ export default function JoinRoom({ navigation }) {
     <SafeView>
       <Views>
         <Header title={t('Classrooms')} navigation={navigation} />
+        <ButtonRefresh button={handleRefresh} />
         <FlatRooms
           data={rooms.rooms}
           renderItem={({ item }) => {
