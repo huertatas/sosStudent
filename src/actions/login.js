@@ -18,7 +18,6 @@ export const login =
   ({ email, password, navigation }) =>
   dispatch => {
     dispatch(setLoader())
-    console.log('pass')
     axios
       .post('https://mobilebackstrapi.herokuapp.com/api/auth/local', {
         identifier: email,
