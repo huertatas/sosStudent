@@ -25,8 +25,16 @@ export default function JoinRoom({ navigation }) {
   }
 
   useEffect(() => {
+    const subscribeToRooms = setInterval(() => {
+      dispatch(getRooms())
+      dispatch(getNotifs())
+    }, 5000)
     dispatch(getRooms())
     dispatch(getNotifs())
+
+    return function unubscribeToRoom() {
+      clearInterval(subscribeToRooms)
+    }
   }, [])
   return (
     <SafeView>
