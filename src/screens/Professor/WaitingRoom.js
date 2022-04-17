@@ -46,6 +46,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
 
   return (
     <SafeView>
+      <Views>
       <Header title={t('WaitingRoom')} navigation={navigation}></Header>
       <RefreshButton button={handleRefresh} />
       <FlatNotifs
@@ -65,6 +66,7 @@ export default function StudentWaitingRoom({ route, navigation }) {
         }}
         keyExtractor={room => room.id}
       />
+      </Views>
     </SafeView>
   )
 }
@@ -81,3 +83,4 @@ const TextEmpty = styled.Text`
   font-size: 25px;
   text-align: center;
 `
+const Views = styled.View``
