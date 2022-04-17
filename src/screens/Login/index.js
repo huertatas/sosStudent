@@ -21,7 +21,6 @@ const Login = ({ navigation }) => {
 
   const handleSubmit = async () => {
     await dispatch(login({ email, password, navigation }))
-    // navigation.navigate('StudentJoinRoom')
   }
 
   const handleNavigateToApp = () => {
