@@ -7,6 +7,13 @@
 - Thomas Pomart
 - Ismail Aissami
 
+### Fonctionnement de l'application :
+-  L'application permet d'appler le professeur en cas de besoin d'aide par un élève. 
+-  Il y'a deux type de compte : un compte professeur et un compte élève
+-  Le professeur créer un groupe de classe et les élève rejoins le groupe.
+-  Une fois les élèves rejoins, le élève peut demander de l'aide au professeur en cliquant un bouton. Le professeur reçois une notifications. L'élève va se mettre en liste d'attente. Le professeur choisira les élève selon l'urgence en lisant la déscription foirni par l'élève. Une fois terminé le professeur clique le bouton terminé.
+
+
 ### Install modules
 ```
 npm install
