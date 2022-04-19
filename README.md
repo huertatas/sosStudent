@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 # Project SOS Student
+# Utiliser l'application de préférence sur IOS
 
 ## Groupe
 - Salavudeen Hadji
