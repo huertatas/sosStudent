@@ -7,6 +7,9 @@
 - Thomas Pomart
 - Ismail Aissami
 
+## Bonus
+- Strapi
+
 ### Fonctionnement de l'application :
 -  L'application permet d'appler le professeur en cas de besoin d'aide par un élève. 
 -  Il y'a deux type de compte : un compte professeur et un compte élève
